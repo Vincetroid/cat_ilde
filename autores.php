@@ -36,7 +36,8 @@ echo "Bienvenido: ".$_SESSION['nick'];
 						<tr><td><input type="text" placeholder="Lugar de nacimiento" name="lug_autor" required></td></tr>
 						<tr><td><input type="date" placeholder="Fecha de nacimiento" name="fec_autor" required></td></tr>
 				<!-- Validar en el futuro las etiquetas html porque se interpretan y las comillas simples -->
-						<tr><td><textarea rows="12" cols="50" rows="" placeholder="Información del autor" name="inf_autor" required></textarea></td></tr>
+						<tr><td><textarea rows="12" cols="50" rows="" placeholder="Biografía" name="inf_autor" required></textarea></td></tr>
+						<!-- <tr><td><textarea rows="12" cols="50" rows="" placeholder="Bibliografía" name="bib_autor" required></textarea></td></tr> -->
 						<!-- <tr><td><textarea placeholder="Comentarios, sinopsis, referencias..." name="com_autor" required></textarea></td></td></tr> -->
 						<tr>
 							<!-- <input type="hidden" name="<?php// echo (session_name()); ?>" value="<?php //echo (session_id()); ?>"> -->

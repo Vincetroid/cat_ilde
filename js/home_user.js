@@ -3,8 +3,10 @@ $(document).ready(function(){
 	// $('.autor').css("background-color","blue");
 	var idAutor = '';
 	var idLibro = ''; 
+	var cadenaNombre = '';
+	var cadenaApellidos = '';
 
-	//CLICK A AUTOR
+	//CLICK A AUTOR (*)
 	$('.autor').on('click',function(){
 
 		idAutor = $(this).attr('id');
@@ -23,11 +25,6 @@ $(document).ready(function(){
 
 	});
 
-
-
-
-	//ESTO NO JALA EN LINEA:
-
 	//CLICK A TITULO DE LIBRO
 	$('#tabla_publicaciones').on('click','a.libro',function(){ //VINCULACION DELEGADA
 
@@ -38,9 +35,8 @@ $(document).ready(function(){
 
 		// $(this).css("background-color", "yellow");
 		
-		//NO SALE EL ALERT
 		// alert($(this).text());
-		//alert("Id autor: " + idAutor + " y  el Id libro: " + idLibro);
+		// alert("Id autor: " + idAutor + " y  el Id libro: " + idLibro);
 
 		$.post('ajax/detalles_publicacion.php',
 			{
@@ -48,7 +44,6 @@ $(document).ready(function(){
 				id_lib : idLibro
 			},
 			function(data){
-				// alert("Datos recibidos: " + data);
 				//borrar Detalles de:
 				$('#tabla_detalles_pub').find('#detalles_de').remove();
 				//remover contenido anterior
@@ -58,13 +53,17 @@ $(document).ready(function(){
 
 				//obtener nombre de portada y ponerla 
 				var nomImg =  $(data).find('#nombre_img_port').html();
-				$('.img-portada').attr('src', 'img/portadas/' + nomImg);
+				if(nomImg === '' || nomImg === 'sin_portada_opti.png'){
+					$('.img-portada').attr('src', 'img/portadas/sin_portada_opti.png');
+				} else {
+					$('.img-portada').attr('src', 'img/portadas/' + nomImg);
+				}
 				
 			}
 		);
 	});
 
-	//CLICK BOTON DE VER INFO  O COMENTARIOS
+	//CLICK BOTON DE VER INFO O COMENTARIOS
 	$('#tabla_detalles_pub').on('click','input.info-libro',function(){//VINCULACION DELEGADA
 
 		$.post('ajax/comentarios_publicacion.php',
@@ -73,7 +72,6 @@ $(document).ready(function(){
 				id_lib : idLibro
 			},
 			function(data){
-				// alert("Datos recibidos: " + data);
 				
 				$('#tabla_comentarios').find('#comentarios_pub').nextAll().remove();
 				$('#tabla_comentarios').append(data);
@@ -84,4 +82,61 @@ $(document).ready(function(){
 	});
 
 
+	//--- BUSQUEDA ---//
+
+	//ENTER A CUADRO DE TEXTO DE BUSQUEDA RÁPIDA POR NOMBRE
+	$("#busqueda_nombre > input[type='text']").on('change',function(){
+
+		cadenaNombre = $(this).val();
+		// alert(cadenaNombre);
+
+		$.post('ajax/busqueda_rapida.php',
+			{
+				cadena_nombre: cadenaNombre,	
+				cadena_apellidos: cadenaApellidos,
+			},
+			function(data){
+				alert("Datos recibidos: " + data);
+				$('#ultima_fila_busqueda').nextAll().remove();
+				$('#tabla_autores').append(data);//VINCULACION DELEGADA(^) 
+			}
+		);
+	});
+
+	//CLICK A AUTOR (*)...PERO DE BUSQUEDA
+	$('#tabla_autores').on('click','a.autor',function(){//VINCULACION DELEGADA(^)
+		
+		idAutor = $(this).attr('id');
+
+		$.post('ajax/publicaciones.php',
+			{
+				id_aut : idAutor
+			},
+			function(data){
+				// alert("Datos recibidos: " + data);
+				$('#tabla_publicaciones').find('#lista_pubs').nextAll().remove();
+				// $('#tabla_publicaciones').find('#lista_pubs').after(data);
+				$('#tabla_publicaciones').append(data); //VINCULACION DELEGADA
+			}
+		);
+
+	});
+
+	//ENTER A CUADRO DE TEXTO DE BUSQUEDA RÁPIDA POR APELLIDOS
+	$("#busqueda_apellidos > input[type='text']").on('change',function(){
+
+		cadenaApellidos = $(this).val();
+
+		$.post('ajax/busqueda_rapida.php',
+			{
+				cadena_nombre: cadenaNombre,	
+				cadena_apellidos: cadenaApellidos	
+			},
+			function(data){
+				alert("Datos recibidos2: " + data);
+				$('#ultima_fila_busqueda').nextAll().remove();
+				$('#tabla_autores').append(data);//VINCULACION DELEGADA(^) 
+			}
+		);
+	});
 });

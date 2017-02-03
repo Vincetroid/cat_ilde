@@ -16,10 +16,6 @@ $consulta = "SELECT DISTINCT id_autor,nombre,apellidos FROM autor;";
 $resultado = mysql_query($consulta,$conex) or die (mysql_error());
 $numFilas = mysql_num_rows($resultado);
 
-// echo "Ruta servidor: ".dirname(__FILE__)."<br>";
-// echo "Ruta servidor modificada: ".str_replace('\\', '/', dirname(__FILE__))."<br>";
-// echo "Ruta servidor con getcwd: ".getcwd()."<br>";
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -40,32 +36,25 @@ $numFilas = mysql_num_rows($resultado);
             </center>
          </header>
          Usuario: <?php echo $_SESSION['nick']."<br>"; ?>
-         <p>¿Qué desea realizar?</p>
+         <p>Elija uno o varios autores</p>
 
          <section>
             <input type="button" value="Dar de alta autor" name="alta_autor" onclick="location.href = 'autores.php'">
-            <input type="button" value="Dar de baja autor" name="baja_autor" onclick="location.href = 'baja_autores.php'">
             <input type="button" value="Registrar libro" name="alta_libro" onclick="location.href = 'libros.php'">
             <input type="button" value="Cerrar Sesión" name="cerrar_sesion" onclick="location.href = 'cerrar_sesion.php'">
          </section>
 
          <table id="secciones_visualizacion">
             <tr>
-               <td rowspan="2">
-
+               <td>
                   <section class="autores">
                      <table id="tabla_autores">
                         <tr>
-                           <th class="libro">Autores</th>
+                           <th colspan="2" class="libro">Autores</th>
                         </tr>
                         <tr>
-                           <td id="busqueda_nombre">
-                              <input type="text" placeholder="Búsqueda rápida por nombre" autofocus   >
-                           </td>
-                        </tr>
-                        <tr id="ultima_fila_busqueda">
-                           <td id="busqueda_apellidos">
-                              <input type="text" placeholder="Búsqueda rápida por apellidos">
+                           <td colspan="2">
+                              <input type="text" placeholder="Búsqueda rápida">
                            </td>
                         </tr>
                         <?php
@@ -73,56 +62,14 @@ $numFilas = mysql_num_rows($resultado);
                               $id_autor = mysql_result($resultado, $fila, "id_autor");
                               $nombre_autor = mysql_result($resultado, $fila, "nombre");
                               $apellidos_autor = mysql_result($resultado, $fila, "apellidos");
-                              echo"<tr><td><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td></tr>";
+                              echo"<tr><td><input type='checkbox'></td><td><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td></tr>";
                            }
                         ?>
                      </table>
                   </section>
-
-               </td>
-               <td colspan="2">
-
-                  <section class="publicaciones">
-                     <table id="tabla_publicaciones">
-                        <tr id="lista_pubs">
-                           <th>Publicaciones</th>
-                        </tr>
-                     </table>
-                  </section>
-
                </td>
             </tr>
-            <tr>
-               <td>
-
-                   <section class="publicaciones">
-                     <table id="tabla_detalles_pub">
-                        <tr id="detalles_pub">
-                           <th id="detalles_de" colspan="2">Detalles de: </th>
-                        </tr>
-                     </table>
-                  </section>
-
-               </td>
-               <td>
-                  <center>
-                     <img class="img-portada" src="img/portadas/sin_portada_opti.png" width="100%" height="auto">
-                  </center>
-               </td>
-            </tr>
-            <tr>
-               <td colspan="3">
-
-                  <section class="comentarios">
-                     <table id="tabla_comentarios">
-                        <tr id="comentarios_pub">
-                           <th colspan="2">Información</th>
-                        </tr>
-                     </table>
-                  </section>
-
-               </td>
-            </tr>
+            
          </table>
 
       </center>

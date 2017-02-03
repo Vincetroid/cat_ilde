@@ -29,6 +29,8 @@ $numFilas = mysql_num_rows($resultado);
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<link rel="shortcut icon" href="img/ico_cat.ico" type="image/x-icon"/>
 	<!-- <link rel="stylesheet" href="css/entrar_operario_style.css" /> -->
+	<script src="js/JIC.min.js" type="text/javascript"></script>
+	<script src="js/demo.js" type="text/javascript"></script>
 	<title>Catalogo San Ildefonso</title>
 </head>
 <body>
@@ -36,7 +38,7 @@ $numFilas = mysql_num_rows($resultado);
 		<input type="button" value="Cerrar Sesión" name="cerrar_sesion" onclick="location.href = 'cerrar_sesion.php'">
 		<header>
 			<center>
-				<h1>Catalogo San Ildefonso</h1>
+				<h1>Catálogo San Ildefonso</h1>
 			</center>
 		</header>
 		<center>
@@ -45,7 +47,7 @@ $numFilas = mysql_num_rows($resultado);
 				<article id="formularioRegistro">
 					<table id="tablaFormReg">
 						<tr><td><h3>Capturar datos de libro</h3></td></tr>
-						<form method="post" action="registrar_libro.php" id="form_reg_libro"> 
+						<form method="post" action="registrar_libro.php" id="form_reg_libro" enctype="multipart/form-data"> 
 						<tr><td><input type="text" placeholder="Titulo" name="tit_libro" required></td></tr> 
 
 						<tr><td>
@@ -67,12 +69,12 @@ $numFilas = mysql_num_rows($resultado);
 						<tr><td><input type="number" min="1" max="10000" placeholder="Páginas" name="pags_libro"></td></tr>
 						<tr><td><input type="number" placeholder="Año de publicación" name="anio_libro"></td></tr>
 						<tr><td><input type="text" placeholder="Lugar de publicación" name="lugar_libro"></td></tr>
-						<tr><td>Imagen de portada (no disponible por el momento)<input type="file" name="port_libro"></td></tr>
-				<!-- Validar en el futuro las etiquetas html porque se interpretan y las comillas simples -->
-						<tr><td><textarea rows="10" cols="50" rows="" placeholder="Comentarios, sinopsis, referencias... (no incluir por el momentos caracteres: <, >, ')" name="inf_libro" required></textarea></td></tr>
+						<tr><td><p style="color:#9d9d9d; display:inline;">Imagen de portada </p><input type="file" name="port_libro" id="port_libro"></td></tr>
+						<img src="" id="img_hidden" style="display:none;">
+						<tr><td><textarea rows="10" cols="50" rows="" placeholder="Sinopsis" name="inf_libro" required></textarea></td></tr>
 						<tr>
 							<!-- <input type="hidden" name="<?php// echo (session_name()); ?>" value="<?php //echo (session_id()); ?>"> -->
-							<td><input type="submit" value="Registrar" name="registrar_libro"></td></td>
+							<td><input type="submit" value="Registrar" name="registrar_libro" id="registrar_libro"></td></td>
 						</tr>
 						</form>
 					</table>

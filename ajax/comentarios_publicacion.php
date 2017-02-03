@@ -15,7 +15,10 @@ if(isset($_POST['id_lib']) === true && empty($_POST['id_lib']) === false && isse
 	$resultado_comment = mysql_query($consulta_comment,$conex) or die (mysql_error());
 	$fila = mysql_fetch_array($resultado_comment);
 
-    echo"<tr><td><p class='comentario-libro'>".$fila['comentario']."</p></td></tr>";
+	//previamente aplicado un html_entity_encode, al realizar htmlentities solo se codificar al caracter html correspondiente 
+	$info_sin_html = htmlentities($fila['comentario']);
+
+    echo"<tr><td><p class='comentario-libro'>".$info_sin_html."</p></td></tr>";
 
     mysql_free_result($resultado_comment);
 }

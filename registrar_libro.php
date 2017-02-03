@@ -11,8 +11,13 @@ $pags = $_POST['pags_libro'];
 $info = $_POST['inf_libro'];
 $anio = $_POST['anio_libro'];
 $lugar = $_POST['lugar_libro'];
-$port = $_POST['port_libro'];
+$port_file_name = $_FILES['port_libro']['name'];
+$port_file = $_FILES['port_libro'];
 
+//Mirar al arreglo de valores devueltos por $_FILES 
+// foreach ($port_file as $key => $value) {
+// 	echo "Propiedad: ".$key." --- Valor: ". $value."<br>";
+// }
 
 if(isset($titulo)){
  
@@ -25,6 +30,7 @@ if(isset($titulo)){
 	//Id del usuario capturador
 	$id_capturador = $_SESSION['id'];
 
+	// Impresiones para depuración
 	// echo "<p>Titulo: ".$titulo."</p>";
 	// echo "<p>Id autor: ".$id_autor."</p>";
 	// echo "<p>Editorial: ".$edit."</p>";
@@ -35,23 +41,63 @@ if(isset($titulo)){
 	// echo "<p>".$lugar."</p>";
 	// echo "<p>".$port."</p>";
 	// echo "<p>".$id_capturador."</p>";
-	
+
+	//Decodificar caracteres de etiquetas html, acentos, etc a caracteres raros
+	// $info_sin_html = htmlentities($info);
+
+	//Colocar caracteres html sin interpretar
+	$info_sin_html = html_entity_decode($info);
+
 	//Insertar en libro
-	$consulta = "INSERT INTO libro VALUES (DEFAULT,'$titulo','$edic','$edit','$anio','$lugar','$pags','$port','$info','$id_capturador','$id_autor');";
-	echo $consulta;
+	$consulta = "INSERT INTO libro VALUES (DEFAULT,'$titulo','$edic','$edit','$anio','$lugar','$pags','$port_file_name','$info_sin_html','$id_capturador','$id_autor');";
 	$resultado = mysql_query($consulta) or die (mysql_error());
 	if($resultado){
-		echo " <script>
-			alert('Registro de libro exitoso');
-			location.href='home_user.php';
-		</script>
-		";
+
+		//Subir archivo al servidor
+		$portada_recibida = $_FILES["port_libro"]["tmp_name"];
+		// $pre_ruta = str_replace('\\', '/', dirname(__FILE__));
+		// $pre_ruta = "sanildefonso.org.mx/www/cat_ilde";
+		$ruta_guardado = "img/portadas/".$_FILES["port_libro"]["name"];
+		
+		//Fines de depuración
+		echo "Pre ruta: ".$pre_ruta."<br>";
+		echo "Portada: ".$portada_recibida."<br>";
+		echo "Ruta: ".$ruta_guardado."<br>";
+
+		//Si el archivo se subió a temporales
+		if(file_exists($portada_recibida))
+		{
+		   echo "Archivo subido a temporales";
+		}
+		else
+		{
+		   echo "Archivo no se subió a temporales";
+		}
+
+		//Si el la subida del temporal fue concretada
+		$muf = move_uploaded_file($portada_recibida, $ruta_guardado);
+		if($muf){
+			echo "<script>
+				alert('Imagen de portada se subió exitosamente');
+			</script>";
+		} else {
+			echo "<script>
+				alert('No se pudo subir la imagen de portada. Intente de nuevo o consulte al administrador.');
+			</script>";
+		}
+
+		//Mensaje y direccionamiento
+		echo "<script>
+			alert('Registro de datos de libro exitoso');
+			<!--location.href='home_user.php';-->
+		</script>";
+
 	}else{
+		//Mensaje y direccionamiento
 		echo " <script>
-			alert('No se pudo grabar. Intente de nuevo o consulte al administrador');
-			location.href='libros.php';
-		</script>
-		";
+			alert('No se pudo grabar la información del libro. Intente de nuevo o consulte al administrador');
+			<!--location.href='libros.php';-->
+		</script>";
 	}
 
 	//Seleccionar últmo libro registrado
@@ -60,27 +106,6 @@ if(isset($titulo)){
 	// $resultado_sec = mysql_query($consulta_sec) or die (mysql_error());
 	// $fila = mysql_fetch_array($resultado_sec);
 	// $last_id_book = $fila['id_libro'];
-
-
-	//Insertar en autor_libro
-	// $consulta2 = "INSERT INTO autor_libro VALUES (DEFAULT,'$id_autor','$last_id_book');";
-	// echo $consulta2;
-	// $resultado2 = mysql_query($consulta2) or die (mysql_error());
-	// if($resultado2){
-	// 	echo " <script>
-	// 		alert('Exitosa autor_libro');
-	// 		<!--location.href='home_user.php';-->
-	// 	</script>
-	// 	";
-	// }else{
-	// 	echo " <script>
-	// 		alert('No se pudo grabar. Intente de nuevo o consulte al administrador');
-	// 		<!--location.href='libros.php';-->
-	// 	</script>
-	// 	";
-	// }
-
-
 }
 else{
 	header("location:libros.php");	
