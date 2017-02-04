@@ -9,13 +9,10 @@ if(isset($_POST['cadena_nombre']) === true && empty($_POST['cadena_nombre']) ===
 	//Consultar comentario o info de un libro
 	$consulta = "SELECT id_autor,nombre,apellidos FROM autor WHERE nombre LIKE '%".mysql_real_escape_string(trim($_POST['cadena_nombre']))."%' AND apellidos LIKE '%".mysql_real_escape_string(trim($_POST['cadena_apellidos']))."%';";
 	// echo "Consulta".$consulta;
-	echo "Nombre y Apellidos";
+	// echo "Nombre y Apellidos";
 
 	$resultado = mysql_query($consulta,$conex) or die (mysql_error());
 	$numFilas = mysql_num_rows($resultado);
-
-	//previamente aplicado un html_entity_encode, al realizar htmlentities solo se codificar al caracter html correspondiente 
-	$info_sin_html = htmlentities($fila['comentario']);
 
 	for ($fila = 0; $fila < $numFilas; $fila++) {
     	$id_autor = mysql_result($resultado, $fila, "id_autor");
@@ -36,12 +33,10 @@ else if(isset($_POST['cadena_nombre']) === true && empty($_POST['cadena_nombre']
 	//Consultar comentario o info de un libro
 	$consulta = "SELECT id_autor,nombre,apellidos FROM autor WHERE nombre LIKE '%".mysql_real_escape_string(trim($_POST['cadena_nombre']))."%' ;";
 	// echo "Consulta".$consulta;
+	echo "NOMBRE";
 
 	$resultado = mysql_query($consulta,$conex) or die (mysql_error());
 	$numFilas = mysql_num_rows($resultado);
-
-	//previamente aplicado un html_entity_encode, al realizar htmlentities solo se codificar al caracter html correspondiente 
-	$info_sin_html = htmlentities($fila['comentario']);
 
 	for ($fila = 0; $fila < $numFilas; $fila++) {
     	$id_autor = mysql_result($resultado, $fila, "id_autor");
@@ -67,9 +62,6 @@ else if(isset($_POST['cadena_apellidos']) === true && empty($_POST['cadena_apell
 	$resultado = mysql_query($consulta,$conex) or die (mysql_error());
 	$numFilas = mysql_num_rows($resultado);
 
-	//previamente aplicado un html_entity_encode, al realizar htmlentities solo se codificar al caracter html correspondiente 
-	$info_sin_html = htmlentities($fila['comentario']);
-
 	for ($fila = 0; $fila < $numFilas; $fila++) {
     	$id_autor = mysql_result($resultado, $fila, "id_autor");
     	$nombre_autor = mysql_result($resultado, $fila, "nombre");
@@ -79,5 +71,26 @@ else if(isset($_POST['cadena_apellidos']) === true && empty($_POST['cadena_apell
 
     mysql_free_result($resultado);
 } 
+
+//ENTER CUANDO NO HAY CADENA TEXTO, SE REGRESAN TODOS LOS AUTORES
+else{
+
+	//Conexion a bd yendo atrás hacia carpeta raíz
+	require('../conexion.php');
+
+	//Consultar comentario o info de un libro
+	$consulta = "SELECT DISTINCT id_autor,nombre,apellidos FROM autor;"; 
+	$resultado = mysql_query($consulta,$conex) or die (mysql_error());
+	$numFilas = mysql_num_rows($resultado);
+
+    for ($fila = 0; $fila < $numFilas; $fila++) {
+     	$id_autor = mysql_result($resultado, $fila, "id_autor");
+      	$nombre_autor = mysql_result($resultado, $fila, "nombre");
+      	$apellidos_autor = mysql_result($resultado, $fila, "apellidos");
+    	echo"<tr><td><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td></tr>";	
+    }
+
+    mysql_free_result($resultado);
+}
 
 ?>

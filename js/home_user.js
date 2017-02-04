@@ -38,6 +38,10 @@ $(document).ready(function(){
 		// alert($(this).text());
 		// alert("Id autor: " + idAutor + " y  el Id libro: " + idLibro);
 
+		$.ajax({
+	        contentType: "application/x-www-form-urlencoded;charset=ISO-8859-15"
+	    });
+
 		$.post('ajax/detalles_publicacion.php',
 			{
 				id_aut : idAutor,
@@ -88,21 +92,54 @@ $(document).ready(function(){
 	$("#busqueda_nombre > input[type='text']").on('change',function(){
 
 		cadenaNombre = $(this).val();
-		// alert(cadenaNombre);
+		
+		if(cadenaNombre !== ''){
+			$.post('ajax/busqueda_rapida.php',
+				{
+					cadena_nombre: cadenaNombre,	
+					cadena_apellidos: cadenaApellidos,
+				},
+				function(data){
+					// alert("Datos recibidos con cadena de texto: " + data);
+					$('#ultima_fila_busqueda').nextAll().remove();
+					$('#tabla_autores').append(data);//VINCULACION DELEGADA(^) 
+				}
+			);
+		} else if(cadenaNombre === ''){
+			
+			$.post('ajax/busqueda_rapida.php',
+				{
+					cadena_nombre: cadenaNombre,	
+					cadena_apellidos: cadenaApellidos,
+				},
+				function(data){
+					// alert("Datos recibidos sin cadena de texto: " + data);
+					$('#ultima_fila_busqueda').nextAll().remove();
+					$('#tabla_autores').append(data);//VINCULACION DELEGADA(^) 
+				}
+			);
+		}
+
+	});
+
+	//ENTER A CUADRO DE TEXTO DE BUSQUEDA RÁPIDA POR APELLIDOS
+	$("#busqueda_apellidos > input[type='text']").on('change',function(){
+
+		cadenaApellidos = $(this).val();
 
 		$.post('ajax/busqueda_rapida.php',
 			{
 				cadena_nombre: cadenaNombre,	
-				cadena_apellidos: cadenaApellidos,
+				cadena_apellidos: cadenaApellidos,	
 			},
 			function(data){
-				alert("Datos recibidos: " + data);
+				// alert("Datos recibidos2: " + data);
 				$('#ultima_fila_busqueda').nextAll().remove();
 				$('#tabla_autores').append(data);//VINCULACION DELEGADA(^) 
 			}
 		);
 	});
-
+	
 	//CLICK A AUTOR (*)...PERO DE BUSQUEDA
 	$('#tabla_autores').on('click','a.autor',function(){//VINCULACION DELEGADA(^)
 		
@@ -122,21 +159,4 @@ $(document).ready(function(){
 
 	});
 
-	//ENTER A CUADRO DE TEXTO DE BUSQUEDA RÁPIDA POR APELLIDOS
-	$("#busqueda_apellidos > input[type='text']").on('change',function(){
-
-		cadenaApellidos = $(this).val();
-
-		$.post('ajax/busqueda_rapida.php',
-			{
-				cadena_nombre: cadenaNombre,	
-				cadena_apellidos: cadenaApellidos	
-			},
-			function(data){
-				alert("Datos recibidos2: " + data);
-				$('#ultima_fila_busqueda').nextAll().remove();
-				$('#tabla_autores').append(data);//VINCULACION DELEGADA(^) 
-			}
-		);
-	});
 });

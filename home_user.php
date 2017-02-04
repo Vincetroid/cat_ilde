@@ -25,15 +25,21 @@ $numFilas = mysql_num_rows($resultado);
 <html>
    <head>
       <!-- <meta charset="utf-8" /> -->
-      <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+      <!-- <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> -->
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <link rel="shortcut icon" href="img/ico_cat.ico" type="image/x-icon"/>
+      <link href="css/bootstrap.css" rel="stylesheet">
       <link href="css/estilos_user.css" rel="stylesheet">
       <script src="js/jquery-3.1.1.min.js"></script>
+      <script src="js/bootstrap.js"></script>
       <script src="js/home_user.js"></script>
       <title>Catalogo San Ildefonso</title>
    </head>
-   <body>
+   <body id="bootstrap_overrides">
       <center style="margin-top:50px";>
+         <!-- <div class="container">
+            <div class="row">
+                -->
          <header>
             <center>
                <h1>Catálogo San Ildefonso</h1>
@@ -60,12 +66,12 @@ $numFilas = mysql_num_rows($resultado);
                         </tr>
                         <tr>
                            <td id="busqueda_nombre">
-                              <input type="text" placeholder="Búsqueda rápida por nombre" autofocus   >
+                              <input type="text" placeholder="Búsqueda por nombre" autofocus   >
                            </td>
                         </tr>
                         <tr id="ultima_fila_busqueda">
                            <td id="busqueda_apellidos">
-                              <input type="text" placeholder="Búsqueda rápida por apellidos">
+                              <input type="text" placeholder="Búsqueda por apellidos">
                            </td>
                         </tr>
                         <?php

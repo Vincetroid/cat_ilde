@@ -22,6 +22,7 @@ if(isset($_POST['id_aut']) === true && empty($_POST['id_aut']) === false ){
     }
 
     mysql_free_result($resultado_libro);
+    
 }
 
 ?>

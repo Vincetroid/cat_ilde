@@ -60,9 +60,9 @@ if(isset($titulo)){
 		$ruta_guardado = "img/portadas/".$_FILES["port_libro"]["name"];
 		
 		//Fines de depuración
-		echo "Pre ruta: ".$pre_ruta."<br>";
-		echo "Portada: ".$portada_recibida."<br>";
-		echo "Ruta: ".$ruta_guardado."<br>";
+		// echo "Pre ruta: ".$pre_ruta."<br>";
+		// echo "Portada: ".$portada_recibida."<br>";
+		// echo "Ruta: ".$ruta_guardado."<br>";
 
 		//Si el archivo se subió a temporales
 		if(file_exists($portada_recibida))
@@ -89,14 +89,14 @@ if(isset($titulo)){
 		//Mensaje y direccionamiento
 		echo "<script>
 			alert('Registro de datos de libro exitoso');
-			<!--location.href='home_user.php';-->
+			location.href='home_user.php';
 		</script>";
 
 	}else{
 		//Mensaje y direccionamiento
 		echo " <script>
 			alert('No se pudo grabar la información del libro. Intente de nuevo o consulte al administrador');
-			<!--location.href='libros.php';-->
+			location.href='libros.php';
 		</script>";
 	}
 

@@ -1,5 +1,16 @@
+/*Peso numérico de selectores CSS:
+
+100 puntos para ID's
+10 puntos para clases y pseudoclases
+1 puntos para selectores de etiqueta y pseudoelementos
+
+*/
 table{
-	border: solid 1px black;
+	/*border: solid 1px black;*/
+}
+
+#bootstrap_overrides th{
+	text-align: center;
 }
 
 td{
@@ -22,8 +33,9 @@ table#tabla_autores, table#tabla_publicaciones{
 	padding: 0;
 }
 
-
-a{
+/*100 + 1 = 101 de prioridad*/
+/*#bootstrap_overrides para tener preferencia sobre BOOTSTRAP*/
+#bootstrap_overrides a{
 	text-decoration: none;
 	color: #6d6d6d;
 	font-size: 0.9em;
@@ -31,7 +43,7 @@ a{
 	font-family: calibri, lucida;
 }
 
-a:hover{
+#bootstrap_overrides a:hover{
 	color: black; 
     cursor: pointer;
 }
