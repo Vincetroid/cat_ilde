@@ -26,7 +26,7 @@ $numFilas = mysql_num_rows($resultado);
    <head>
       <!-- <meta charset="utf-8" /> -->
       <!-- <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> -->
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
       <link rel="shortcut icon" href="img/ico_cat.ico" type="image/x-icon"/>
       <link href="css/bootstrap.css" rel="stylesheet">
       <link href="css/estilos_user.css" rel="stylesheet">

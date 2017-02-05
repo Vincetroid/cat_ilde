@@ -8,9 +8,6 @@ if(isset($_POST['cadena_nombre']) === true && empty($_POST['cadena_nombre']) ===
 
 	//Consultar comentario o info de un libro
 	$consulta = "SELECT id_autor,nombre,apellidos FROM autor WHERE nombre LIKE '%".mysql_real_escape_string(trim($_POST['cadena_nombre']))."%' AND apellidos LIKE '%".mysql_real_escape_string(trim($_POST['cadena_apellidos']))."%';";
-	// echo "Consulta".$consulta;
-	// echo "Nombre y Apellidos";
-
 	$resultado = mysql_query($consulta,$conex) or die (mysql_error());
 	$numFilas = mysql_num_rows($resultado);
 
@@ -32,9 +29,6 @@ else if(isset($_POST['cadena_nombre']) === true && empty($_POST['cadena_nombre']
 
 	//Consultar comentario o info de un libro
 	$consulta = "SELECT id_autor,nombre,apellidos FROM autor WHERE nombre LIKE '%".mysql_real_escape_string(trim($_POST['cadena_nombre']))."%' ;";
-	// echo "Consulta".$consulta;
-	echo "NOMBRE";
-
 	$resultado = mysql_query($consulta,$conex) or die (mysql_error());
 	$numFilas = mysql_num_rows($resultado);
 
@@ -57,8 +51,6 @@ else if(isset($_POST['cadena_apellidos']) === true && empty($_POST['cadena_apell
 
 	//Consultar comentario o info de un libro
 	$consulta = "SELECT id_autor,nombre,apellidos FROM autor WHERE apellidos LIKE '%".mysql_real_escape_string(trim($_POST['cadena_apellidos']))."%' ;";
-	// echo "Consulta".$consulta;
-
 	$resultado = mysql_query($consulta,$conex) or die (mysql_error());
 	$numFilas = mysql_num_rows($resultado);
 

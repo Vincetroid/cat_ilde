@@ -20,19 +20,22 @@ $numFilas = mysql_num_rows($resultado);
 <!DOCTYPE html>
 <html>
    <head>
-      <!-- <meta charset="utf-8" /> -->
-      <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+      <!-- <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> -->
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
       <link rel="shortcut icon" href="img/ico_cat.ico" type="image/x-icon"/>
+      <link href="css/bootstrap.css" rel="stylesheet">
       <link href="css/estilos_user.css" rel="stylesheet">
       <script src="js/jquery-3.1.1.min.js"></script>
-      <script src="js/home_user.js"></script>
+      <script src="js/bootstrap.js"></script>
+      <script src="js/baja_autores.js"></script>
       <title>Catalogo San Ildefonso</title>
    </head>
-   <body>
+   <body id="bootstrap_overrides">
       <center style="margin-top:50px";>
          <header>
             <center>
                <h1>Catálogo San Ildefonso</h1>
+               <input type="button" value="Ir a Menú" name="menu" onclick="location.href = 'home_user.php'"><br><br>
             </center>
          </header>
          Usuario: <?php echo $_SESSION['nick']."<br>"; ?>
@@ -53,8 +56,13 @@ $numFilas = mysql_num_rows($resultado);
                            <th colspan="2" class="libro">Autores</th>
                         </tr>
                         <tr>
-                           <td colspan="2">
-                              <input type="text" placeholder="Búsqueda rápida">
+                           <td colspan="2" id="busqueda_nombre">
+                              <input type="text" placeholder="Búsqueda por nombre" autofocus   >
+                           </td>
+                        </tr>
+                        <tr id="ultima_fila_busqueda">
+                           <td colspan="2" id="busqueda_apellidos">
+                              <input type="text" placeholder="Búsqueda por apellidos">
                            </td>
                         </tr>
                         <?php
@@ -62,7 +70,7 @@ $numFilas = mysql_num_rows($resultado);
                               $id_autor = mysql_result($resultado, $fila, "id_autor");
                               $nombre_autor = mysql_result($resultado, $fila, "nombre");
                               $apellidos_autor = mysql_result($resultado, $fila, "apellidos");
-                              echo"<tr><td><input type='checkbox'></td><td><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td></tr>";
+                              echo"<tr><td><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td></tr>";
                            }
                         ?>
                      </table>

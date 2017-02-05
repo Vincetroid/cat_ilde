@@ -1,4 +1,6 @@
 <?php
+
+
 //NO LLEGAN LOS DATOS ACA EN LINEA
 // echo " <script>
 // 			alert('".$_POST['id_aut']."');
@@ -44,7 +46,7 @@ if(isset($_POST['id_lib']) === true && empty($_POST['id_lib']) === false && isse
 	$fila = mysql_fetch_array($resultado_libro);
 
 	//Insertar detalles de libro tal
-  	echo'<tr><th colspan="2">Detalles de: '. $fila['titulo'] .'</th></tr>
+  	echo'<tr><th colspan="2">Detalles de: '. utf8_encode($fila['titulo']) .'</th></tr>
 		<tr><td>Edición </td><td>'. $fila['ed'] . '</td></tr>
 		<tr><td>Editorial </td><td>'. $fila['edit'] . '</td></tr>
 		<tr><td>Año de publicación </td><td>'. $fila['anio_pub'] . '</td></tr>
@@ -58,4 +60,4 @@ if(isset($_POST['id_lib']) === true && empty($_POST['id_lib']) === false && isse
     mysql_free_result($resultado_libro);
 }
 
-?>
+?>	

@@ -3,6 +3,8 @@
 //CLICK A BOTON DR INFORMACION O COMENTARIOS
 if(isset($_POST['id_lib']) === true && empty($_POST['id_lib']) === false && isset($_POST['id_aut']) === true && empty($_POST['id_aut']) === false){
 	
+	header('Content-Type: text/html; charset=ISO-8859-1');
+
 	//Conexion a bd yendo atrás hacia carpeta raíz
 	require('../conexion.php');
 
