@@ -51,7 +51,7 @@ echo "Bienvenido: ".$_SESSION['nick'];
 
 		<footer style="margin-top:200px";>
 			<center>
-				<p style="font-size:12px;">Realizado por: Rivera Villanueva Vicente / Desarrollo y Diseño Web, Monter Yancko / Editor Web, Díaz Rafael / Sistemas</p>
+				<?php require('creditos.php'); ?>
 			</center>
 		</footer>
 	</section>

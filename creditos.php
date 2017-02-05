@@ -1,0 +1,1 @@
+<?php echo "<p style='font-size:12px;'>Realizado por: Monter Yancko / Editor Web, Rivera Villanueva Vicente / Desarrollo y Diseño Web, Díaz Rafael / Sistemas</p>"; ?>

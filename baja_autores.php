@@ -39,7 +39,7 @@ $numFilas = mysql_num_rows($resultado);
             </center>
          </header>
          Usuario: <?php echo $_SESSION['nick']."<br>"; ?>
-         <p>Elija uno o varios autores</p>
+         <p>Elija un autor</p>
 
          <section>
             <input type="button" value="Dar de alta autor" name="alta_autor" onclick="location.href = 'autores.php'">
@@ -84,7 +84,7 @@ $numFilas = mysql_num_rows($resultado);
 
       <footer style="margin-top:200px";>
          <center>
-            <p style="font-size:12px;">Realizado por: Rivera Villanueva Vicente / Desarrollo y Diseño Web, Monter Yancko / Editor Web, Díaz Rafael / Sistemas</p>
+            <?php require('creditos.php'); ?>
          </center>
       </footer>
 

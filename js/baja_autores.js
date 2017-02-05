@@ -18,7 +18,6 @@ $(document).ready(function(){
 					id_aut : idAutor
 				},
 				function(data){
-					alert("Datos recibidos: " + data);
 					if(data == '1'){
 						row_selection.hide();
 						alert('Se eliminó el autor');
@@ -90,19 +89,28 @@ $(document).ready(function(){
 	//CLICK A AUTOR (*)...PERO DE BUSQUEDA
 	$('#tabla_autores').on('click','a.autor',function(){//VINCULACION DELEGADA(^)
 		
-		idAutor = $(this).attr('id');
-
-		$.post('ajax/publicaciones.php',
-			{
-				id_aut : idAutor
-			},
-			function(data){
-				// alert("Datos recibidos: " + data);
-				$('#tabla_publicaciones').find('#lista_pubs').nextAll().remove();
-				// $('#tabla_publicaciones').find('#lista_pubs').after(data);
-				$('#tabla_publicaciones').append(data); //VINCULACION DELEGADA
-			}
-		);
+		var erase = confirm('¿Está seguro? Se borrarán todas las publicaciones e información asociadas al autor ');
+		var row_selection = $(this).closest("tr");
+		
+		if(erase == true){
+			idAutor = $(this).attr('id');
+			
+			$.post('ajax/borrar_autores.php',
+				{
+					id_aut : idAutor
+				},
+				function(data){
+					if(data == '1'){
+						row_selection.hide();
+						alert('Se eliminó el autor');
+					} else {
+						alert('No se pudo eliminar el autor');
+					}
+				}
+			);
+		} else {
+			return false;
+		}
 
 	});
 

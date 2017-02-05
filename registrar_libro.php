@@ -65,14 +65,14 @@ if(isset($titulo)){
 		// echo "Ruta: ".$ruta_guardado."<br>";
 
 		//Si el archivo se subió a temporales
-		if(file_exists($portada_recibida))
-		{
-		   echo "Archivo subido a temporales";
-		}
-		else
-		{
-		   echo "Archivo no se subió a temporales";
-		}
+		// if(file_exists($portada_recibida))
+		// {
+		//    echo "Archivo subido a temporales";
+		// }
+		// else
+		// {
+		//    echo "Archivo no se subió a temporales";
+		// }
 
 		//Si el la subida del temporal fue concretada
 		$muf = move_uploaded_file($portada_recibida, $ruta_guardado);
