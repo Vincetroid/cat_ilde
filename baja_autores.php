@@ -22,7 +22,7 @@ $numFilas = mysql_num_rows($resultado);
    <head>
       <!-- <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> -->
       <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
-      <link rel="shortcut icon" href="img/ico_cat.ico" type="image/x-icon"/>
+      <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
       <link href="css/bootstrap.css" rel="stylesheet">
       <link href="css/estilos_user.css" rel="stylesheet">
       <script src="js/jquery-3.1.1.min.js"></script>

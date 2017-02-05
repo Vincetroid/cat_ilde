@@ -26,11 +26,12 @@ $numFilas = mysql_num_rows($resultado);
 <html lang="es">
 <head>
 	<!-- <meta charset="utf-8" /> -->
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<link rel="shortcut icon" href="img/ico_cat.ico" type="image/x-icon"/>
-	<!-- <link rel="stylesheet" href="css/entrar_operario_style.css" /> -->
+	<!-- <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> -->
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+	<!-- <link rel="stylesheet" href="css/entrar_operario_style.css" />
 	<script src="js/JIC.min.js" type="text/javascript"></script>
-	<script src="js/demo.js" type="text/javascript"></script>
+	<script src="js/demo.js" type="text/javascript"></script> -->
 	<title>Catalogo San Ildefonso</title>
 </head>
 <body>
