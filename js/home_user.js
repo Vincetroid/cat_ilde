@@ -199,4 +199,13 @@ $(document).ready(function(){
 
 	});
 
+	//CLICK A IMAGEN DE LAPIZ PARA MODIFICACIÓN DE AUTOR
+	$('.edit_autor').on('click',function(){//VINCULACION DELEGADA(^)
+		
+		idAutor = $(this).siblings().find('.autor').attr('id');
+		location.href = 'modificar_autores.php?id_autor=' + idAutor;
+		// alert(idAutor);
+		
+	});
+
 });

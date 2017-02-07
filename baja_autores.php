@@ -43,6 +43,7 @@ $numFilas = mysql_num_rows($resultado);
 
          <section>
             <input type="button" value="Dar de alta autor" name="alta_autor" onclick="location.href = 'autores.php'">
+            <input type="button" value="Modificar autor" name="modificar_autor" onclick="location.href = 'modificar_autores.php'">
             <input type="button" value="Registrar libro" name="alta_libro" onclick="location.href = 'libros.php'">
             <input type="button" value="Cerrar Sesión" name="cerrar_sesion" onclick="location.href = 'cerrar_sesion.php'">
          </section>

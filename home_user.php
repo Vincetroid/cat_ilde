@@ -50,6 +50,7 @@ $numFilas = mysql_num_rows($resultado);
 
          <section>
             <input type="button" value="Dar de alta autor" name="alta_autor" onclick="location.href = 'autores.php'">
+            <!-- <input type="button" value="Modificar autor" name="modificar_autor" onclick="location.href = 'modificar_autores.php'"> -->
             <input type="button" value="Dar de baja autor" name="baja_autor" onclick="location.href = 'baja_autores.php'">
             <input type="button" value="Registrar libro" name="alta_libro" onclick="location.href = 'libros.php'">
             <input type="button" value="Cerrar Sesión" name="cerrar_sesion" onclick="location.href = 'cerrar_sesion.php'">
@@ -62,15 +63,15 @@ $numFilas = mysql_num_rows($resultado);
                   <section class="autores">
                      <table id="tabla_autores">
                         <tr>
-                           <th class="libro">Autores</th>
+                           <th colspan="2" class="libro">Autores</th>
                         </tr>
                         <tr>
-                           <td id="busqueda_nombre">
-                              <input type="text" placeholder="Búsqueda por nombre" autofocus   >
+                           <td colspan="2" id="busqueda_nombre">
+                              <input type="text" placeholder="Búsqueda por nombre" autofocus>
                            </td>
                         </tr>
                         <tr id="ultima_fila_busqueda">
-                           <td id="busqueda_apellidos">
+                           <td colspan="2" id="busqueda_apellidos">
                               <input type="text" placeholder="Búsqueda por apellidos">
                            </td>
                         </tr>
@@ -79,7 +80,7 @@ $numFilas = mysql_num_rows($resultado);
                               $id_autor = mysql_result($resultado, $fila, "id_autor");
                               $nombre_autor = mysql_result($resultado, $fila, "nombre");
                               $apellidos_autor = mysql_result($resultado, $fila, "apellidos");
-                              echo"<tr><td><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td></tr>";
+                              echo"<tr><td><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td><td class='edit_autor img_edit'><img src='img/lapiz_opti2.png' width='15px' height='15px'></td></tr>";
                            }
                         ?>
                      </table>

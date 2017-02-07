@@ -35,7 +35,7 @@ table#tabla_autores, table#tabla_publicaciones{
 
 /*100 + 1 = 101 de prioridad*/
 /*#bootstrap_overrides para tener preferencia sobre BOOTSTRAP*/
-#bootstrap_overrides a{
+#bootstrap_overrides a,input{
 	text-decoration: none;
 	color: #6d6d6d;
 	font-size: 0.9em;
@@ -46,4 +46,30 @@ table#tabla_autores, table#tabla_publicaciones{
 #bootstrap_overrides a:hover{
 	color: black; 
     cursor: pointer;
+}
+
+#busqueda_nombre > input[type="text"], #busqueda_apellidos > input[type="text"]{
+	width: 100%;
+}
+
+/*Icono de modificación y su celda*/
+td.img_edit{
+	margin: 0 auto;
+	padding: 0;
+}
+
+td.img_edit > img{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+td.img_edit > img:hover{
+	filter: opacity(50%);
+	-webkit-filter: opacity(50%);
+}
+
+td.img_edit > img:active{
+	filter: opacity(100%);
+	-webkit-filter: opacity(100%);
 }
