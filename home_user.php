@@ -123,7 +123,7 @@ $numFilas = mysql_num_rows($resultado);
                   <section class="comentarios">
                      <table id="tabla_comentarios">
                         <tr id="comentarios_pub">
-                           <th colspan="2">Información</th>
+                           <th colspan="2">Reseña</th>
                         </tr>
                      </table>
                   </section>
