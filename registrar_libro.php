@@ -9,6 +9,7 @@ $edit = $_POST['edit_libro'];
 $edic = $_POST['edic_libro'];
 $pags = $_POST['pags_libro'];
 $info = $_POST['inf_libro'];
+$come = $_POST['com_libro'];
 $anio = $_POST['anio_libro'];
 $lugar = $_POST['lugar_libro'];
 $port_file_name = $_FILES['port_libro']['name'];
@@ -47,9 +48,10 @@ if(isset($titulo)){
 
 	//Colocar caracteres html sin interpretar
 	$info_sin_html = html_entity_decode($info);
+	$come_sin_html = html_entity_decode($come);
 
 	//Insertar en libro
-	$consulta = "INSERT INTO libro VALUES (DEFAULT,'$titulo','$edic','$edit','$anio','$lugar','$pags','$port_file_name','$info_sin_html','$id_capturador','$id_autor');";
+	$consulta = "INSERT INTO libro VALUES (DEFAULT,'$titulo','$edic','$edit','$anio','$lugar','$pags','$port_file_name','$info_sin_html','$come_sin_html','$id_capturador','$id_autor');";
 	$resultado = mysql_query($consulta) or die (mysql_error());
 	if($resultado){
 

@@ -66,13 +66,14 @@ $numFilas = mysql_num_rows($resultado);
 						</td></tr>
 
 						<tr><td><input type="text" placeholder="Editorial" name="edit_libro" required></td></tr>
+						<tr><td><input type="text" placeholder="Lugar de publicación" name="lugar_libro"></td></tr>
+						<tr><td><input type="number" placeholder="Año de publicación" name="anio_libro"></td></tr>
 						<tr><td><input type="number" min="1" max="1000" placeholder="Edición" name="edic_libro" required></td></tr>
 						<tr><td><input type="number" min="1" max="10000" placeholder="Páginas" name="pags_libro"></td></tr>
-						<tr><td><input type="number" placeholder="Año de publicación" name="anio_libro"></td></tr>
-						<tr><td><input type="text" placeholder="Lugar de publicación" name="lugar_libro"></td></tr>
+						<tr><td><textarea rows="10" cols="50" rows="" placeholder="Reseña" name="inf_libro" required></textarea></td></tr>
+						<tr><td><textarea rows="10" cols="50" rows="" placeholder="Comentario" name="com_libro" required></textarea></td></tr>
 						<tr><td><p style="color:#9d9d9d; display:inline;">Imagen de portada </p><input type="file" name="port_libro" id="port_libro"></td></tr>
-						<img src="" id="img_hidden" style="display:none;">
-						<tr><td><textarea rows="10" cols="50" rows="" placeholder="Sinopsis" name="inf_libro" required></textarea></td></tr>
+						<!-- <img src="" id="img_hidden" style="display:none;"> -->
 						<tr>
 							<!-- <input type="hidden" name="<?php// echo (session_name()); ?>" value="<?php //echo (session_id()); ?>"> -->
 							<td><input type="submit" value="Registrar" name="registrar_libro" id="registrar_libro"></td></td>
