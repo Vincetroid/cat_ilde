@@ -12,17 +12,24 @@ if(isset($_POST['id_lib']) === true && empty($_POST['id_lib']) === false && isse
 	$idAut = preg_replace("/[^0-9]/","",$_POST['id_aut']);
 	$idBook = preg_replace("/[^0-9]/","",$_POST['id_lib']);
 
-	//Consultar comentario o info de un libro
-	$consulta_comment = "SELECT id_libro,comentario,id_autor FROM libro WHERE id_autor = ".mysql_real_escape_string(trim($idAut))." AND id_libro = '$idBook';";
-	$resultado_comment = mysql_query($consulta_comment,$conex) or die (mysql_error());
-	$fila = mysql_fetch_array($resultado_comment);
+	// //Consultar reseña de libro
+	// $consulta_resenia = "SELECT id_libro,resenia,comentario,id_autor FROM libro WHERE id_autor = ".mysql_real_escape_string(trim($idAut))." AND id_libro = '$idBook';";
+	// $resultado_resenia = mysql_query($consulta_resenia,$conex) or die (mysql_error());
+	// $fila = mysql_fetch_array($resultado_resenia);
+
+	//Consultar reseña y comentario de libro
+	$consulta = "SELECT id_libro,resenia,comentario,id_autor FROM libro WHERE id_autor = ".mysql_real_escape_string(trim($idAut))." AND id_libro = '$idBook';";
+	$resultado = mysql_query($consulta,$conex) or die (mysql_error());
+	$fila = mysql_fetch_array($resultado);
 
 	//previamente aplicado un html_entity_encode, al realizar htmlentities solo se codificar al caracter html correspondiente 
-	$info_sin_html = htmlentities($fila['comentario']);
+	$resenia_sin_html = htmlentities($fila['resenia']);
+	$coment_sin_html = htmlentities($fila['comentario']);
 
-    echo"<tr><td><p class='comentario-libro'>".$info_sin_html."</p></td></tr>";
+    echo"<tr><td><p class='resenia-libro'>".$resenia_sin_html."</p></td></tr>";
+    echo"<tr><td><p class='comentario-libro'>".$coment_sin_html."</p></td></tr>";
 
-    mysql_free_result($resultado_comment);
+    mysql_free_result($resultado);
 }
 
 ?>

@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
 	// $('footer').css("background-color", "yellow");
 	// $('.autor').css("background-color","blue");
 	var idAutor = '';
@@ -20,30 +21,11 @@ $(document).ready(function(){
 				$('#tabla_publicaciones').find('#lista_pubs').nextAll().remove();
 				// $('#tabla_publicaciones').find('#lista_pubs').after(data);
 				$('#tabla_publicaciones').append(data); //VINCULACION DELEGADA
+				$(".nano").nanoScroller();
 			}
 		);
 
-		// $.ajax({
-		// 	method: 'POST',
-		// 	// beforeSend: function(request){
-		// 	// 	request.setContentType("text/html");
-		// 	// 	request.setCharacterEncoding("UTF-8");
-		// 	// },
-		// 	url: 'ajax/publicaciones.php',
-		// 	data: { id_aut : idAutor },
-		// 	// dataFilter: function (data, type){
-		// 	// 	alert ('Datos devueltos con filtro: ' + data);
-				
-		// 	// },
-		// 	// dataType: 'text/html',
-		// 	// contentType: "charset=UTF-8",
-		// 	// contentType: "application/x-www-form-urlencoded;charset=ISO-8859-1",
-		// 	success: function(data){
-		// 		// alert("Datos recibidos: " + data);
-		// 		$('#tabla_publicaciones').find('#lista_pubs').nextAll().remove();
-		// 		$('#tabla_publicaciones').append(data); //VINCULACION DELEGADA
-		// 	}
-		// });
+
 	});
 
 	//CLICK A TITULO DE LIBRO
@@ -56,31 +38,6 @@ $(document).ready(function(){
 		
 		// alert($(this).text());
 		// alert("Id autor: " + idAutor + " y  el Id libro: " + idLibro);
-
-		// $.ajax({
-		// 	method: 'POST',
-		// 	url: 'ajax/detalles_publicacion.php',
-		// 	data: { 
-		// 		id_aut : idAutor,
-		// 		id_lib : idLibro
-		// 	},		
-		// 	success: function(data){
-		// 		//borrar Detalles de:
-		// 		$('#tabla_detalles_pub').find('#detalles_de').remove();
-		// 		//remover contenido anterior
-		// 		$('#tabla_detalles_pub').find('#detalles_pub').nextAll().remove();
-		// 		// $('#tabla_publicaciones').find('#lista_pubs').after(data);
-		// 		$('#tabla_detalles_pub').append(data);//VINCULACION DELEGADA
-
-		// 		//obtener nombre de portada y ponerla 
-		// 		var nomImg =  $(data).find('#nombre_img_port').html();
-		// 		if(nomImg === '' || nomImg === 'sin_portada_opti.png'){
-		// 			$('.img-portada').attr('src', 'img/portadas/sin_portada_opti.png');
-		// 		} else {
-		// 			$('.img-portada').attr('src', 'img/portadas/' + nomImg);
-		// 		}
-		// 	}
-		// });
 
 		$.post('ajax/detalles_publicacion.php',
 			{
@@ -107,7 +64,7 @@ $(document).ready(function(){
 		);
 	});
 
-	//CLICK BOTON DE VER INFO O COMENTARIOS
+	//CLICK BOTON DE RESEÑA
 	$('#tabla_detalles_pub').on('click','input.info-libro',function(){//VINCULACION DELEGADA
 
 		$.post('ajax/comentarios_publicacion.php',
@@ -117,8 +74,10 @@ $(document).ready(function(){
 			},
 			function(data){
 				
+				$('#tabla_resenia').find('#resenia_pub').nextAll().remove();
 				$('#tabla_comentarios').find('#comentarios_pub').nextAll().remove();
-				$('#tabla_comentarios').append(data);
+				// $('#tabla_resenia').append(data);
+				// $('#tabla_comentarios').append(data);
 				
 			}
 		);
@@ -207,5 +166,7 @@ $(document).ready(function(){
 		// alert(idAutor);
 		
 	});
+
+	$(".nano").nanoScroller();
 
 });

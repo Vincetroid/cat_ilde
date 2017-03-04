@@ -27,44 +27,82 @@ $numFilas = mysql_num_rows($resultado);
       <!-- <meta charset="utf-8" /> -->
       <!-- <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> -->
       <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
-      <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
-      <link href="css/bootstrap.css" rel="stylesheet">
-      <link href="css/estilos_user.css" rel="stylesheet">
+      <link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
       <script src="js/jquery-3.1.1.min.js"></script>
+      <script src="js/jquery.nanoscroller.js"></script>
       <script src="js/bootstrap.js"></script>
+      <link href="css/bootstrap.css" rel="stylesheet">
+      <link href="css/nanoscroller.css" rel="stylesheet">
+      <link href="css/estilos_user.css" rel="stylesheet">
       <script src="js/home_user.js"></script>
+      <!-- <link href="css/jquery.bxslider.css" rel="stylesheet" /> -->
+
+
+
+      <!-- bxSlider Javascript file -->
+      <!-- // <script src="js/jquery.bxslider.min.js"></script> -->
+      <!-- bxSlider CSS file -->
+      <!-- <link href="css/jquery.bxslider.css" rel="stylesheet" /> -->
+
       <title>Catalogo San Ildefonso</title>
    </head>
    <body id="bootstrap_overrides">
-      <center style="margin-top:50px";>
-         <!-- <div class="container">
+      <center style="margin-top:0px";>
+         <div class="container-fluid">
             <div class="row">
-                -->
-         <header>
-            <center>
-               <h1>Catálogo San Ildefonso</h1>
-            </center>
-         </header>
-         Usuario: <?php echo $_SESSION['nick']."<br>"; ?>
-         <p>¿Qué desea realizar?</p>
+               <div class="col-sm-12 header">
 
-         <section>
-            <input type="button" value="Dar de alta autor" name="alta_autor" onclick="location.href = 'autores.php'">
-            <!-- <input type="button" value="Modificar autor" name="modificar_autor" onclick="location.href = 'modificar_autores.php'"> -->
-            <input type="button" value="Dar de baja autor" name="baja_autor" onclick="location.href = 'baja_autores.php'">
-            <input type="button" value="Registrar libro" name="alta_libro" onclick="location.href = 'libros.php'">
-            <input type="button" value="Cerrar Sesión" name="cerrar_sesion" onclick="location.href = 'cerrar_sesion.php'">
-         </section>
+                  <div class="col-sm-1">
+                     <img src="img/logo.gif" class="logo">
+                     <div class="border-logo"></div>
+                  </div>
+
+                  <div class="col-sm-3 left-up-header">
+                     <h2 class="left-up-header-content">Catálogo San Ildefonso</h2>
+                  </div>
+
+                  <div class="col-sm-4 height-100">
+                     <ul class="nav">
+                        <li onclick="location.href = 'autores.php'">Nuevo autor</li>
+                        <li onclick="location.href = 'baja_autores.php'">Borrar autor</li>
+                        <li onclick="location.href = 'libros.php'">Registrar libro</li>
+                     </ul>
+                  </div>
+
+                  <div class="col-sm-2 right-up-header">
+                     <p class="right-up-header-content">
+                        Bienvenido <?php echo $_SESSION['nick']."<br>"; ?>
+                     </p>
+                  </div>
+
+                  <div class="col-sm-1 right-up-header">
+                     <span onclick="location.href = 'cerrar_sesion.php'" class="glyphicon glyphicon-log-out"></span>
+                  </div>
+
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-sm-12 line-under-header-nav"></div>
+            </div>
+         </div>
+
+         <div class="little-space"></div>
 
          <table id="secciones_visualizacion">
             <tr>
-               <td rowspan="2">
+               <td rowspan="2" class="content-cell">
+
+                  <table class="center-header-table tabla-hasta-arriba">
+                     <tr>
+                        <th colspan="2" class="libro">Autores</th>
+                     </tr>
+                  </table>
 
                   <section class="autores">
                      <table id="tabla_autores">
-                        <tr>
+                        <!-- <tr>
                            <th colspan="2" class="libro">Autores</th>
-                        </tr>
+                        </tr> -->
                         <tr>
                            <td colspan="2" id="busqueda_nombre">
                               <input type="text" placeholder="Búsqueda por nombre" autofocus>
@@ -87,31 +125,46 @@ $numFilas = mysql_num_rows($resultado);
                   </section>
 
                </td>
-               <td colspan="2">
+               <td colspan="2" class="content-cell">
 
-                  <section class="publicaciones">
-                     <table id="tabla_publicaciones">
-                        <tr id="lista_pubs">
-                           <th>Publicaciones</th>
-                        </tr>
-                     </table>
-                  </section>
+                  <table class="center-header-table">
+                     <tr>
+                        <th>Publicaciones</th>
+                     </tr>
+                  </table>
+                  <div class="nano">
+                     <div class="nano-content">
+                        <section class="publicaciones">
+                           <table id="tabla_publicaciones" >
+                              <tr id="lista_pubs">
+                                 
+                              </tr>
+                           </table>
+                        </section>
+                     <div>
+                  </div>
 
                </td>
             </tr>
             <tr>
-               <td>
+               <td class="content-cell">
 
-                   <section class="publicaciones">
+                  <!-- <table class="center-header-table">
+                     <tr>
+                        <th id="detalles_de" colspan="2">Detalles de: </th>
+                     </tr>
+                  </table> -->
+
+                  <section class="publicaciones">
                      <table id="tabla_detalles_pub">
                         <tr id="detalles_pub">
-                           <th id="detalles_de" colspan="2">Detalles de: </th>
+                           
                         </tr>
                      </table>
                   </section>
 
                </td>
-               <td>
+               <td class="width-portada">
                   <center>
                      <img class="img-portada" src="img/portadas/sin_portada_opti.png" width="100%" height="auto">
                   </center>
@@ -120,13 +173,45 @@ $numFilas = mysql_num_rows($resultado);
             <tr>
                <td colspan="3">
 
-                  <section class="comentarios">
-                     <table id="tabla_comentarios">
-                        <tr id="comentarios_pub">
+                  <section class="resenia">
+                     <table id="tabla_resenia">
+                        <tr id="resenia_pub">
                            <th colspan="2">Reseña</th>
                         </tr>
                      </table>
                   </section>
+
+               </td>
+            </tr>
+            <tr>
+               <td colspan="3">
+
+                  <section class="comentarios">
+                     <table id="tabla_comentarios">
+                        <tr id="comentarios_pub">
+                           <th colspan="2">Comentarios</th>
+                        </tr>
+                     </table>
+                  </section>
+
+               </td>
+            </tr>
+
+            <tr>
+               <td colspan="3">
+
+                  <div class="nano">
+                     <div class="nano-content">
+                        <section class="comentarios">
+                           <table id="tabla_comentarios">
+                              <tr id="comentarios_pub">
+                                 <th colspan="2">Comentarios</th>
+                                 <tr><p>Lorem</p><p>Lorem</ps><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p><p>Lorem</p></tr>
+                              </tr>
+                           </table>
+                        </section>
+                     </div>
+                  </div>
 
                </td>
             </tr>

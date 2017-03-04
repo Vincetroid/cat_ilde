@@ -5,17 +5,114 @@
 1 puntos para selectores de etiqueta y pseudoelementos
 
 */
+
+#bootstrap_overrides .header{
+	background-color: #8c1226;
+	position: fixed;
+	color: white;
+	z-index: 100;
+	height: 50px;
+}
+
+.logo{
+	margin-top: 3px;
+	width: 28px;
+	height: auto;
+}
+
+.border-logo{
+	border-right: 1px solid white;
+	margin-right: 5px;
+}
+
+#bootstrap_overrides .right-up-header{
+	/*background-color: blue;*/
+	height: 50px;
+	text-align: right;
+	margin-top: 20px;
+}
+
+#bootstrap_overrides .left-up-header{
+	/*background-color: orange;*/
+	height: 100%;
+	margin-top: -10px;
+}
+
+#bootstrap_overrides .right-up-header-content{
+}
+
+#bootstrap_overrides .left-up-header-content{
+}
+
+#bootstrap_overrides .height-100{
+	height: 100%;
+}
+
+ul.nav{
+	list-style-type: none;
+	height: 100%;
+}
+
+.nav li{
+	display: inline-block;
+	font-size: 12pt;
+	line-height: 40px;
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-left: 5px;
+	border-right: 2px #fff solid;
+	height: 100%;
+	/*background-color: gray;*/
+	margin-right: -4px;
+	font-family: calibri;
+	cursor: pointer;
+}
+
+.nav li:hover{
+	background-color: gray;
+}
+
+.nav li:last-child{
+	border-right: none;
+}
+
+#bootstrap_overrides .glyphicon-log-out:hover{
+	color: gray;
+}
+
+.line-under-header-nav{
+	background-color: #a68677;
+	height: 10px;
+	z-index: 1000;
+	margin-top: 50px;
+	position: fixed;
+}
+
+.little-space{
+	height: 40px;
+}
+
 table{
 	/*border: solid 1px black;*/
 }
 
 #bootstrap_overrides th{
 	text-align: center;
+	color: white;
 }
+
 
 td{
 	/*border: solid 1px black;*/
 	padding: 2px 10px 2px 10px;
+}
+
+td.content-cell{
+	padding: 0px;
+}
+
+.tabla-hasta-arriba{
+	
 }
 
 table#secciones_visualizacion{
@@ -69,7 +166,42 @@ td.img_edit > img:hover{
 	-webkit-filter: opacity(50%);
 }
 
-td.img_edit > img:active{
+/*td.img_edit > img:active{
 	filter: opacity(100%);
 	-webkit-filter: opacity(100%);
+}*/
+
+section.publicaciones{
+	/*height: 200px;*/
+	/*overflow: scroll;*/
+	padding: 0px 50px 0px 50px;
+}
+
+
+
+.nano { background: #fff; width: 100%; height: 300px;
+	/*override nano to center*/
+	margin: 0 auto;
+	padding: 0;
+}
+.nano .nano-content { padding: 10px; }
+.nano .nano-pane   { background: #888; }
+.nano .nano-slider { background: #111; }
+
+.width-portada{
+	width: 200px;
+}
+
+
+.center-header-table{
+	/*margin-right: auto;
+	margin-left: auto;
+	display: block;*/
+	width: 100%;
+	background-color: #8c1226; 
+}
+
+#bootstrap_overrides .glyphicon-log-out{
+	font-size: 14pt;
+	color: white;
 }
