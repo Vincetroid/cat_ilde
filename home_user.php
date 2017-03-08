@@ -88,50 +88,92 @@ $numFilas = mysql_num_rows($resultado);
 
          <div class="little-space"></div>
 
+         <div class="subtitle">
+            <div class="subtitle1">Autores</div>
+            <div class="subtitle2">Publicaciones</div>
+            <div class="subtitle3">Biografía</div>
+         </div>
+
          <table id="secciones_visualizacion">
             <tr>
-               <td rowspan="2" class="content-cell">
+               <td rowspan="2" class="content-cell cell-autor">
 
-                  <table class="center-header-table tabla-hasta-arriba">
-                     <tr>
-                        <th colspan="2" class="libro">Autores</th>
-                     </tr>
-                  </table>
+                  <div class="subtitle">
+                     <div class="col-sm-12 center-header-table" id="busqueda_nombre">
+                        <input type="text" placeholder="Búsqueda por nombre" autofocus class="search-input">
+<!--                         <table>
+                           <tr>
+                              <td><input type="text" placeholder="Búsqueda por nombre" autofocus></td>
+                              <td><span class="glyphicon glyphicon-search search"></span></td>
+                           </tr>
+                        </table> -->
+                     </div>
+                  </div>
+                  <div class="subtitle">
+                     <div class="col-sm-12 center-header-table" id="busqueda_nombre">
+                        <input type="text" placeholder="Búsqueda por apellidos" id="last-search-input" class="search-input">
+                     </div>
+                  </div>
 
-                  <section class="autores">
-                     <table id="tabla_autores">
-                        <!-- <tr>
-                           <th colspan="2" class="libro">Autores</th>
-                        </tr> -->
-                        <tr>
-                           <td colspan="2" id="busqueda_nombre">
-                              <input type="text" placeholder="Búsqueda por nombre" autofocus>
-                           </td>
-                        </tr>
-                        <tr id="ultima_fila_busqueda">
-                           <td colspan="2" id="busqueda_apellidos">
-                              <input type="text" placeholder="Búsqueda por apellidos">
-                           </td>
-                        </tr>
-                        <?php
-                           for ($fila = 0; $fila < $numFilas; $fila++) {
-                              $id_autor = mysql_result($resultado, $fila, "id_autor");
-                              $nombre_autor = mysql_result($resultado, $fila, "nombre");
-                              $apellidos_autor = mysql_result($resultado, $fila, "apellidos");
-                              echo"<tr><td><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td><td class='edit_autor img_edit'><img src='img/lapiz_opti2.png' width='15px' height='15px'></td></tr>";
-                           }
-                        ?>
-                     </table>
-                  </section>
+
+                 <!--  <tr>
+                     <td id="busqueda_nombre">
+                        <input type="text" placeholder="Búsqueda por nombre" autofocus>
+                     </td>
+                  </tr>
+                  <tr id="ultima_fila_busqueda">
+                     <td id="busqueda_apellidos">
+                        <input type="text" placeholder="Búsqueda por apellidos">
+                     </td>
+                  </tr> -->
+
+                  <div class="nano" style="height:550px;">
+                     <div class="nano-content">
+                        <section class="autores">
+                           <table id="tabla_autores">
+                              <!-- <tr>
+                                 <td colspan="2" id="busqueda_nombre">
+                                    <input type="text" placeholder="Búsqueda por nombre" autofocus>
+                                 </td>
+                              </tr>
+                              <tr id="ultima_fila_busqueda">
+                                 <td colspan="2" id="busqueda_apellidos">
+                                    <input type="text" placeholder="Búsqueda por apellidos">
+                                 </td>
+                              </tr> -->
+                              <?php
+                                 for ($fila = 0; $fila < $numFilas; $fila++) {
+                                    $id_autor = mysql_result($resultado, $fila, "id_autor");
+                                    $nombre_autor = mysql_result($resultado, $fila, "nombre");
+                                    $apellidos_autor = mysql_result($resultado, $fila, "apellidos");
+                                    echo"<tr><td class='autor-cell'><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td><td class='edit_autor img_edit'><img src='img/lapiz_opti2.png' width='15px' height='15px'></td></tr>";
+                                 }
+                              ?>
+                           </table>
+                        </section>
+                     <div>
+                  </div>
+
+                  
 
                </td>
-               <td colspan="2" class="content-cell">
 
-                  <table class="center-header-table">
+               <!-- PUBLICACIONES -->
+
+
+               <td colspan="" class="content-cell cell-publication">
+
+                  <!-- <table class="center-header-table">
                      <tr>
-                        <th>Publicaciones</th>
+                        <th><h3 class="element-title">Publicaciones</h3></th>
                      </tr>
-                  </table>
+                  </table> -->
+                  <!-- <div class="row subtitle">
+                     <div class="col-sm-12 center-header-table">
+                        <h3 class="element-title">Publicaciones</h3>
+                     </div>
+                  </div> -->
+
                   <div class="nano">
                      <div class="nano-content">
                         <section class="publicaciones">
@@ -145,15 +187,39 @@ $numFilas = mysql_num_rows($resultado);
                   </div>
 
                </td>
+
+               <td class="content-cell cell-biography">
+                  <div class="nano">
+                     <div class="nano-content">
+                        <section class="publicaciones">
+                           <table id="tabla_publicaciones" >
+                              <tr id="lista_pubs">
+                                 <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vestibulum vulputate efficitur. Curabitur interdum condimentum rhoncus. Maecenas placerat est et odio convallis, vel cursus est suscipit. Suspendisse tempus, tellus in bibendum tempor, nisl lectus gravida turpis, sit amet bibendum diam lorem quis elit. Vestibulum est libero, gravida sagittis elementum ac, dapibus nec neque. Integer et magna dapibus, ullamcorper odio sed, laoreet nisi. Curabitur a varius odio, et sagittis sem. Duis consectetur vestibulum ligula, ut pellentesque dolor fringilla ut. Sed enim enim, scelerisque a nunc non, fringilla mattis nibh. Donec non libero at enim vulputate tincidunt. Praesent convallis orci auctor dapibus porttitor.
+                                 </p>
+                                 <p>
+                     Nam ut eros eu diam euismod aliqu am. Quisque ac rhoncus erat. Maecenas malesuada lectus at efficitur consectetur. Duis a rhoncus lacus, eu interdum turpis. Proin vitae dapibus ex, at blandit lorem. Nulla iaculis sapien vel purus tincidunt, in aliquam urna semper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur nec condimentum risus. Etiam imperdiet, urna sed commodo pellentesque, est libero placerat ante, feugiat iaculis metus turpis et magna. Sed volutpat iaculis enim, vel pulvinar felis suscipit eget. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce et velit suscipit, tristique lacus a, vestibulum mi.
+                                 </p>
+                              </tr>
+                           </table>
+                        </section>
+                     <div>
+                  </div>
+               </td>
+
             </tr>
-            <tr>
-               <td class="content-cell">
+            <tr class="row-details-cover">
+               <td class="content-cell cell-details">
 
                   <!-- <table class="center-header-table">
                      <tr>
                         <th id="detalles_de" colspan="2">Detalles de: </th>
                      </tr>
                   </table> -->
+
+                  <div class="subtitle details-position">
+                     <div id="publication_details">Detalles de:</div>
+                  </div>
 
                   <section class="publicaciones">
                      <table id="tabla_detalles_pub">
@@ -164,13 +230,14 @@ $numFilas = mysql_num_rows($resultado);
                   </section>
 
                </td>
-               <td class="width-portada">
+               <td id="size-portada" class="cell-cover">
                   <center>
-                     <img class="img-portada" src="img/portadas/sin_portada_opti.png" width="100%" height="auto">
+                     <!-- <img class="img-responsive img-portada" src="img/portadas/sin_portada_opti.png"> -->
+                     <img class="img-portada" src="img/portadas/sin_portada_opti.png">
                   </center>
                </td>
             </tr>
-            <tr>
+            <!-- <tr>
                <td colspan="3">
 
                   <section class="resenia">
@@ -214,7 +281,7 @@ $numFilas = mysql_num_rows($resultado);
                   </div>
 
                </td>
-            </tr>
+            </tr> -->
          </table>
 
       </center>

@@ -15,7 +15,9 @@ if(isset($_POST['cadena_nombre']) === true && empty($_POST['cadena_nombre']) ===
     	$id_autor = mysql_result($resultado, $fila, "id_autor");
     	$nombre_autor = mysql_result($resultado, $fila, "nombre");
     	$apellidos_autor = mysql_result($resultado, $fila, "apellidos");
-    	echo"<tr><td><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td></tr>";
+    	// echo"<tr><td><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td></tr>";
+        echo"<tr><td class='autor-cell'><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td><td class='edit_autor img_edit'><img src='img/lapiz_opti2.png' width='15px' height='15px'></td></tr>";
+    	
     }
 
     mysql_free_result($resultado);
@@ -36,7 +38,9 @@ else if(isset($_POST['cadena_nombre']) === true && empty($_POST['cadena_nombre']
     	$id_autor = mysql_result($resultado, $fila, "id_autor");
     	$nombre_autor = mysql_result($resultado, $fila, "nombre");
     	$apellidos_autor = mysql_result($resultado, $fila, "apellidos");
-    	echo"<tr><td><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td></tr>";
+    	// echo"<tr><td><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td></tr>";
+        echo"<tr><td class='autor-cell'><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td><td class='edit_autor img_edit'><img src='img/lapiz_opti2.png' width='15px' height='15px'></td></tr>";
+
     }
 
     mysql_free_result($resultado);
@@ -58,7 +62,9 @@ else if(isset($_POST['cadena_apellidos']) === true && empty($_POST['cadena_apell
     	$id_autor = mysql_result($resultado, $fila, "id_autor");
     	$nombre_autor = mysql_result($resultado, $fila, "nombre");
     	$apellidos_autor = mysql_result($resultado, $fila, "apellidos");
-    	echo"<tr><td><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td></tr>";
+    	// echo"<tr><td><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td></tr>";
+        echo"<tr><td class='autor-cell'><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td><td class='edit_autor img_edit'><img src='img/lapiz_opti2.png' width='15px' height='15px'></td></tr>";
+
     }
 
     mysql_free_result($resultado);
@@ -79,7 +85,9 @@ else{
      	$id_autor = mysql_result($resultado, $fila, "id_autor");
       	$nombre_autor = mysql_result($resultado, $fila, "nombre");
       	$apellidos_autor = mysql_result($resultado, $fila, "apellidos");
-    	echo"<tr><td><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td></tr>";	
+    	// echo"<tr><td><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td></tr>";	
+        echo"<tr><td class='autor-cell'><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td><td class='edit_autor img_edit'><img src='img/lapiz_opti2.png' width='15px' height='15px'></td></tr>";
+
     }
 
     mysql_free_result($resultado);

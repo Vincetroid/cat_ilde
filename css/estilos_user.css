@@ -86,10 +86,11 @@ ul.nav{
 	z-index: 1000;
 	margin-top: 50px;
 	position: fixed;
+	box-shadow: grey 0px 1px 5px;
 }
 
 .little-space{
-	height: 40px;
+	height: 80px;
 }
 
 table{
@@ -111,23 +112,25 @@ td.content-cell{
 	padding: 0px;
 }
 
-.tabla-hasta-arriba{
-	
-}
+
 
 table#secciones_visualizacion{
-	margin-top: 30px;
-	width: 80%;
+	/*margin-top: 30px;*/
+	width: 100%;
 }
 
 table#secciones_visualizacion td{
 	border: solid 1px black;
 }
 
-table#tabla_autores, table#tabla_publicaciones{
+table#tabla_autores, table#tabla_publicaciones, table#tabla_detalles_pub{
 	/*background: red;*/
 	margin: 0 auto;
 	padding: 0;
+}
+
+table#tabla_detalles_pub{
+	margin-top: 30px; 
 }
 
 /*100 + 1 = 101 de prioridad*/
@@ -135,9 +138,14 @@ table#tabla_autores, table#tabla_publicaciones{
 #bootstrap_overrides a,input{
 	text-decoration: none;
 	color: #6d6d6d;
-	font-size: 0.9em;
-	/*font-weight: lighter;*/
+	font-size: 1.1em;
 	font-family: calibri, lucida;
+}
+
+.search-input{
+	font-size: 1em;
+	font-weight: lighter;
+	height: 25px;
 }
 
 #bootstrap_overrides a:hover{
@@ -147,12 +155,14 @@ table#tabla_autores, table#tabla_publicaciones{
 
 #busqueda_nombre > input[type="text"], #busqueda_apellidos > input[type="text"]{
 	width: 100%;
+	text-align: center;
+	/*border-radius: 10px;*/
 }
 
 /*Icono de modificación y su celda*/
 td.img_edit{
 	margin: 0 auto;
-	padding: 0;
+	padding: 2px;
 }
 
 td.img_edit > img{
@@ -172,7 +182,7 @@ td.img_edit > img:hover{
 }*/
 
 section.publicaciones{
-	/*height: 200px;*/
+	height: 100px;
 	/*overflow: scroll;*/
 	padding: 0px 50px 0px 50px;
 }
@@ -184,24 +194,121 @@ section.publicaciones{
 	margin: 0 auto;
 	padding: 0;
 }
+/*.nano-autor{  height: 100px;
+	margin: 0 auto;
+	padding: 0;
+}*/
 .nano .nano-content { padding: 10px; }
 .nano .nano-pane   { background: #888; }
 .nano .nano-slider { background: #111; }
 
-.width-portada{
-	width: 200px;
-}
 
 
 .center-header-table{
-	/*margin-right: auto;
-	margin-left: auto;
-	display: block;*/
 	width: 100%;
-	background-color: #8c1226; 
+	/*background-color: #8c1226; */
+	text-align: center;
+	padding: 0px;
+	/*position: absolute;*/
+}
+
+#last-search-input{
+	margin-top: -1px;
+}
+
+.search{
+	float: left;
+}
+
+/*#bootstrap_overrides .subtitle{
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: -180px;
+}*/
+
+.element-title{
+	font-size: 12pt;
+	color: white;
+	margin: 5px 0px;
 }
 
 #bootstrap_overrides .glyphicon-log-out{
 	font-size: 14pt;
 	color: white;
+}
+
+.subtitle div{
+	display: inline-block;
+	background-color: #8c1226; 
+	color: white;
+	font-size: 12pt;
+	font-weight: bold; 
+}
+
+.subtitle1{
+	width: 25%;
+	float: left;
+}
+
+.subtitle2{
+	width: 35%;
+	float: left;
+}
+
+.subtitle3{
+	width: 40%;
+	text-align: center;
+}
+
+/*.subtitle-details{
+	display: inline-block; 
+	margin-top: -60px;
+}*/
+
+.cell-autor{
+	width: 25%;
+	/*height: 600px;*/
+}
+
+.cell-details{
+	width: 35%;
+}
+
+.cell-cover{
+	width: 40%;
+}
+
+.row-details-cover{
+	height: 300px;
+}
+
+.img-portada{
+	display: block;
+	/*max-width: 40%;*/
+	max-width: 100%;
+	max-height: 280px;
+	height: auto;
+}
+
+/*#size-portada{
+	width: 100%;
+	height: 70px;
+	overflow: scroll;
+}*/
+
+.autor-cell{
+	width: 100%;
+}
+
+.cell-biography{
+	text-align: justify;
+}
+
+.details-position{
+	margin-top: -150px;
+}
+
+#publication_details{
+	padding-left: 5%;
+	width: 100%;
 }

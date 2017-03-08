@@ -100,7 +100,7 @@ $(document).ready(function(){
 				},
 				function(data){
 					// alert("Datos recibidos con cadena de texto: " + data);
-					$('#ultima_fila_busqueda').nextAll().remove();
+					$('#tabla_autores').children().remove();
 					$('#tabla_autores').append(data);//VINCULACION DELEGADA(^) 
 				}
 			);
@@ -113,7 +113,8 @@ $(document).ready(function(){
 				},
 				function(data){
 					// alert("Datos recibidos sin cadena de texto: " + data);
-					$('#ultima_fila_busqueda').nextAll().remove();
+					// $('#ultima_fila_busqueda').nextAll().remove();
+					$('#tabla_autores').children().remove();
 					$('#tabla_autores').append(data);//VINCULACION DELEGADA(^) 
 				}
 			);

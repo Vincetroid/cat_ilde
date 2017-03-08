@@ -23,7 +23,7 @@ if(isset($_POST['id_lib']) === true && empty($_POST['id_lib']) === false && isse
 		<tr><td>Lugar de publicación </td><td>'. $fila['lugar_pub'] . '</td></tr>
 		<tr><td>Páginas </td><td>'. $fila['pags'] . '</td></tr>
 		<tr><td>Portada </td><td id="nombre_img_port">'. $fila['portada'] . '</td></tr>
-		<tr><td colspan="2"><center><input class="info-libro" type="button" value="Reseña"/></center></td></tr>';
+		<tr><td colspan="2"><center><input class="info-libro btn btn-primary" type="button" value="Reseña"/></center></td></tr>';
 
 	//Liberar consulta
     mysql_free_result($resultado_libro);
