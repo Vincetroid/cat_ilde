@@ -93,10 +93,6 @@ ul.nav{
 	height: 80px;
 }
 
-table{
-	/*border: solid 1px black;*/
-}
-
 #bootstrap_overrides th{
 	text-align: center;
 	color: white;
@@ -111,7 +107,6 @@ td{
 td.content-cell{
 	padding: 0px;
 }
-
 
 
 table#secciones_visualizacion{
@@ -202,8 +197,6 @@ section.publicaciones{
 .nano .nano-pane   { background: #888; }
 .nano .nano-slider { background: #111; }
 
-
-
 .center-header-table{
 	width: 100%;
 	/*background-color: #8c1226; */
@@ -277,6 +270,10 @@ section.publicaciones{
 .cell-cover{
 	width: 40%;
 }
+
+/*#bootstrap_overrides td.cell-publication{
+	background: blue !important;
+}*/
 
 .row-details-cover{
 	height: 300px;

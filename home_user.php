@@ -53,7 +53,7 @@ $numFilas = mysql_num_rows($resultado);
                <div class="col-sm-12 header">
 
                   <div class="col-sm-1">
-                     <img src="img/logo.gif" class="logo">
+                     <img src="img/logo.png" class="logo">
                      <div class="border-logo"></div>
                   </div>
 

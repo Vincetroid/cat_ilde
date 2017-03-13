@@ -1,0 +1,61 @@
+body{
+	background-image: url('../img/murales/lafamilia.jpg');
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#bootstrap_overrides .row{
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.header-title{
+	font-family: calibri;
+	color: white;
+}
+
+#tablaFormReg{
+	margin: 0 auto;
+	margin-top: 190px;
+	padding: 0px;
+	background: rgba(140,18,38,0.7);
+	border-radius: 15px;
+}
+
+#tablaFormReg td{
+	padding: 3px 10px 3px 10px;
+	width: 200px;
+}
+
+.first-input{
+	margin-top: 26px;
+}
+
+.input-box{
+	border-radius: 5px;
+	border: 3px black solid;
+	font-size: 0.9em;
+	padding: 5px;
+	width: 100%;
+}
+
+.btn-center{
+	display: block;
+	margin-right: auto; 
+	margin-left: auto;
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+
+.footer-p{
+	font-size: 0.8em;
+	color: white;
+}
+
+img.footer-img{
+	margin-bottom: 10px;
+	filter: brightness(200%);
+	-webkit-filter: brightness(200%);
+}
