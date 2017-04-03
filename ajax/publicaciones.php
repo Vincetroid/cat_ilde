@@ -17,7 +17,7 @@ if(isset($_POST['id_aut']) === true && empty($_POST['id_aut']) === false ){
 	$numFilasLibro = mysql_num_rows($resultado_libro);
 
 	if($numFilasLibro == 0){
-      	echo"<tr><td class='no-border text-center'>Vacío</td></tr><tr><td class='no-border'><img class='img-responsive' src='img/empty.png'></td></tr>";
+      	echo"<tr><td class='no-border text-center'>Vac&iacuteo</td></tr><tr><td class='no-border'><img class='img-responsive' src='img/empty.png'></td></tr>";
 	} else {
 		//Obtener titulos e id
 		for ($fila = 0; $fila < $numFilasLibro; $fila++) {
