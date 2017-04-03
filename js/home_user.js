@@ -1,16 +1,42 @@
 $(document).ready(function(){
 
-	// $('footer').css("background-color", "yellow");
-	// $('.autor').css("background-color","blue");
 	var idAutor = '';
 	var idLibro = ''; 
 	var cadenaNombre = '';
 	var cadenaApellidos = '';
+	var penultimateClick = [''], lastClick= [''];
 
 	//CLICK A AUTOR (*)
 	$('.autor').on('click',function(){
 
 		idAutor = $(this).attr('id');
+
+		if(lastClick[0] == '' && penultimateClick[0] == ''){ //si no hay click aun
+
+			$(this).parent().css('background','BurlyWood');
+
+			lastClick[0] = $(this).attr('id');
+			lastClick[1] = $(this);
+		} else if(lastClick[0] != '' && penultimateClick[0] == '') { //si hay un ultimo click solamente
+
+			lastClick[1].parent().css('background','none');
+			$(this).parent().css('background','BurlyWood');
+
+			penultimateClick[0] = lastClick[0];
+			penultimateClick[1] = lastClick[1];
+			lastClick[0] = $(this).attr('id');
+			lastClick[1] = $(this);
+		} else if(lastClick[0] != '' && penultimateClick[0] != '') { //si hay tanto un ultimo click y un último click
+			
+			lastClick[1].parent().css('background','none');
+			$(this).parent().css('background','BurlyWood');
+
+			penultimateClick[0] = lastClick[0];
+			penultimateClick[1] = lastClick[1];
+			lastClick[0] = $(this).attr('id');
+			lastClick[1] = $(this);
+		}
+
 
 		$.post('ajax/publicaciones.php',
 			{

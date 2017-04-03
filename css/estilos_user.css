@@ -132,7 +132,8 @@ table#tabla_detalles_pub{
 /*#bootstrap_overrides para tener preferencia sobre BOOTSTRAP*/
 #bootstrap_overrides a,input{
 	text-decoration: none;
-	color: #6d6d6d;
+	/*color: #6d6d6d;*/
+	color: #2d2d2d;
 	font-size: 1.1em;
 	font-family: calibri, lucida;
 }
@@ -308,4 +309,9 @@ section.publicaciones{
 #publication_details{
 	padding-left: 5%;
 	width: 100%;
+}
+
+#bootstrap_overrides td.no-border{
+	/*border: none !important;*/
+	border: none;
 }

@@ -16,12 +16,16 @@ if(isset($_POST['id_aut']) === true && empty($_POST['id_aut']) === false ){
 	$resultado_libro = mysql_query($consulta_libro,$conex) or die (mysql_error());
 	$numFilasLibro = mysql_num_rows($resultado_libro);
 
-	//Obtener titulos e id
-	for ($fila = 0; $fila < $numFilasLibro; $fila++) {
-    	$id_libro = mysql_result($resultado_libro, $fila, "id_libro");
-      	$titulo = mysql_result($resultado_libro, $fila, "titulo");
-      	echo"<tr><td><a class='libro' id='id_libro".$id_libro."'>".$titulo."</a></td></tr>";
-    }
+	if($numFilasLibro == 0){
+      	echo"<tr><td class='no-border text-center'>Vacío</td></tr><tr><td class='no-border'><img class='img-responsive' src='img/empty.png'></td></tr>";
+	} else {
+		//Obtener titulos e id
+		for ($fila = 0; $fila < $numFilasLibro; $fila++) {
+	    	$id_libro = mysql_result($resultado_libro, $fila, "id_libro");
+	      	$titulo = mysql_result($resultado_libro, $fila, "titulo");
+	      	echo"<tr><td><a class='libro' id='id_libro".$id_libro."'>".$titulo."</a></td></tr>";
+	    }
+	}
 
     mysql_free_result($resultado_libro);
     
