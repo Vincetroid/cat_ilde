@@ -110,7 +110,7 @@ $numFilas = mysql_num_rows($resultado);
                      </div>
                   </div>
                   <div class="subtitle">
-                     <div class="col-sm-12 center-header-table" id="busqueda_nombre">
+                     <div class="col-sm-12 center-header-table" id="busqueda_apellidos">
                         <input type="text" placeholder="Búsqueda por apellidos" id="last-search-input" class="search-input">
                      </div>
                   </div>

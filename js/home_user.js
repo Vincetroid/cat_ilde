@@ -159,8 +159,7 @@ $(document).ready(function(){
 				cadena_apellidos: cadenaApellidos,	
 			},
 			function(data){
-				// alert("Datos recibidos2: " + data);
-				$('#ultima_fila_busqueda').nextAll().remove();
+				$('#tabla_autores').children().remove();
 				$('#tabla_autores').append(data);//VINCULACION DELEGADA(^) 
 			}
 		);
@@ -170,6 +169,32 @@ $(document).ready(function(){
 	$('#tabla_autores').on('click','a.autor',function(){//VINCULACION DELEGADA(^)
 		
 		idAutor = $(this).attr('id');
+
+		if(lastClick[0] == '' && penultimateClick[0] == ''){ //si no hay click aun
+
+			$(this).parent().css('background','BurlyWood');
+
+			lastClick[0] = $(this).attr('id');
+			lastClick[1] = $(this);
+		} else if(lastClick[0] != '' && penultimateClick[0] == '') { //si hay un ultimo click solamente
+
+			lastClick[1].parent().css('background','none');
+			$(this).parent().css('background','BurlyWood');
+
+			penultimateClick[0] = lastClick[0];
+			penultimateClick[1] = lastClick[1];
+			lastClick[0] = $(this).attr('id');
+			lastClick[1] = $(this);
+		} else if(lastClick[0] != '' && penultimateClick[0] != '') { //si hay tanto un ultimo click y un último click
+			
+			lastClick[1].parent().css('background','none');
+			$(this).parent().css('background','BurlyWood');
+
+			penultimateClick[0] = lastClick[0];
+			penultimateClick[1] = lastClick[1];
+			lastClick[0] = $(this).attr('id');
+			lastClick[1] = $(this);
+		}
 
 		$.post('ajax/publicaciones.php',
 			{
