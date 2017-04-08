@@ -101,12 +101,6 @@ $numFilas = mysql_num_rows($resultado);
                   <div class="subtitle">
                      <div class="col-sm-12 center-header-table" id="busqueda_nombre">
                         <input type="text" placeholder="Búsqueda por nombre" autofocus class="search-input">
-<!--                         <table>
-                           <tr>
-                              <td><input type="text" placeholder="Búsqueda por nombre" autofocus></td>
-                              <td><span class="glyphicon glyphicon-search search"></span></td>
-                           </tr>
-                        </table> -->
                      </div>
                   </div>
                   <div class="subtitle">
@@ -115,32 +109,10 @@ $numFilas = mysql_num_rows($resultado);
                      </div>
                   </div>
 
-
-                 <!--  <tr>
-                     <td id="busqueda_nombre">
-                        <input type="text" placeholder="Búsqueda por nombre" autofocus>
-                     </td>
-                  </tr>
-                  <tr id="ultima_fila_busqueda">
-                     <td id="busqueda_apellidos">
-                        <input type="text" placeholder="Búsqueda por apellidos">
-                     </td>
-                  </tr> -->
-
                   <div class="nano" style="height:550px;">
                      <div class="nano-content">
                         <section class="autores">
                            <table id="tabla_autores">
-                              <!-- <tr>
-                                 <td colspan="2" id="busqueda_nombre">
-                                    <input type="text" placeholder="Búsqueda por nombre" autofocus>
-                                 </td>
-                              </tr>
-                              <tr id="ultima_fila_busqueda">
-                                 <td colspan="2" id="busqueda_apellidos">
-                                    <input type="text" placeholder="Búsqueda por apellidos">
-                                 </td>
-                              </tr> -->
                               <?php
                                  for ($fila = 0; $fila < $numFilas; $fila++) {
                                     $id_autor = mysql_result($resultado, $fila, "id_autor");
@@ -160,19 +132,7 @@ $numFilas = mysql_num_rows($resultado);
 
                <!-- PUBLICACIONES -->
 
-
                <td colspan="" class="content-cell cell-publication">
-
-                  <!-- <table class="center-header-table">
-                     <tr>
-                        <th><h3 class="element-title">Publicaciones</h3></th>
-                     </tr>
-                  </table> -->
-                  <!-- <div class="row subtitle">
-                     <div class="col-sm-12 center-header-table">
-                        <h3 class="element-title">Publicaciones</h3>
-                     </div>
-                  </div> -->
 
                   <div class="nano">
                      <div class="nano-content">
@@ -188,16 +148,18 @@ $numFilas = mysql_num_rows($resultado);
 
                </td>
 
+               <!-- BIOGRAFIA -->
+
                <td class="content-cell cell-biography">
                   <div class="nano">
                      <div class="nano-content">
                         <section class="publicaciones">
                            <table id="tabla_publicaciones" >
                               <tr id="lista_pubs">
-                                 <p>
+                                 <p class="medium-font">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vestibulum vulputate efficitur. Curabitur interdum condimentum rhoncus. Maecenas placerat est et odio convallis, vel cursus est suscipit. Suspendisse tempus, tellus in bibendum tempor, nisl lectus gravida turpis, sit amet bibendum diam lorem quis elit. Vestibulum est libero, gravida sagittis elementum ac, dapibus nec neque. Integer et magna dapibus, ullamcorper odio sed, laoreet nisi. Curabitur a varius odio, et sagittis sem. Duis consectetur vestibulum ligula, ut pellentesque dolor fringilla ut. Sed enim enim, scelerisque a nunc non, fringilla mattis nibh. Donec non libero at enim vulputate tincidunt. Praesent convallis orci auctor dapibus porttitor.
                                  </p>
-                                 <p>
+                                 <p class="medium-font">
                      Nam ut eros eu diam euismod aliqu am. Quisque ac rhoncus erat. Maecenas malesuada lectus at efficitur consectetur. Duis a rhoncus lacus, eu interdum turpis. Proin vitae dapibus ex, at blandit lorem. Nulla iaculis sapien vel purus tincidunt, in aliquam urna semper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur nec condimentum risus. Etiam imperdiet, urna sed commodo pellentesque, est libero placerat ante, feugiat iaculis metus turpis et magna. Sed volutpat iaculis enim, vel pulvinar felis suscipit eget. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce et velit suscipit, tristique lacus a, vestibulum mi.
                                  </p>
                               </tr>
@@ -208,17 +170,12 @@ $numFilas = mysql_num_rows($resultado);
                </td>
 
             </tr>
+
             <tr class="row-details-cover">
                <td class="content-cell cell-details">
 
-                  <!-- <table class="center-header-table">
-                     <tr>
-                        <th id="detalles_de" colspan="2">Detalles de: </th>
-                     </tr>
-                  </table> -->
-
                   <div class="subtitle details-position">
-                     <div id="publication_details">Detalles de:</div>
+                     <div id="publication_details">Detalles de: </div>
                   </div>
 
                   <section class="publicaciones">
@@ -237,6 +194,10 @@ $numFilas = mysql_num_rows($resultado);
                   </center>
                </td>
             </tr>
+
+            <!-- <tr class='resenia'></tr>
+            <tr class='comentario'></tr> -->
+
             <!-- <tr>
                <td colspan="3">
 
@@ -262,9 +223,9 @@ $numFilas = mysql_num_rows($resultado);
                   </section>
 
                </td>
-            </tr>
+            </tr> -->
 
-            <tr>
+            <!-- <tr>
                <td colspan="3">
 
                   <div class="nano">

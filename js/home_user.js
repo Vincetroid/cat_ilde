@@ -75,6 +75,8 @@ $(document).ready(function(){
 				$('#tabla_detalles_pub').find('#detalles_de').remove();
 				//remover contenido anterior
 				$('#tabla_detalles_pub').find('#detalles_pub').nextAll().remove();
+				//remover reseña y comentario (si se mostraba)
+				$('.resenia-comentario').remove();
 				// $('#tabla_publicaciones').find('#lista_pubs').after(data);
 				$('#tabla_detalles_pub').append(data);//VINCULACION DELEGADA
 
@@ -99,11 +101,10 @@ $(document).ready(function(){
 				id_lib : idLibro
 			},
 			function(data){
-				
-				$('#tabla_resenia').find('#resenia_pub').nextAll().remove();
-				$('#tabla_comentarios').find('#comentarios_pub').nextAll().remove();
-				// $('#tabla_resenia').append(data);
-				// $('#tabla_comentarios').append(data);
+				// alert("Datos recibidos con cadena de texto: " + data);
+
+				$('.resenia-comentario').remove();
+				$('.row-details-cover').after(data);
 				
 			}
 		);
@@ -125,7 +126,6 @@ $(document).ready(function(){
 					cadena_apellidos: cadenaApellidos,
 				},
 				function(data){
-					// alert("Datos recibidos con cadena de texto: " + data);
 					$('#tabla_autores').children().remove();
 					$('#tabla_autores').append(data);//VINCULACION DELEGADA(^) 
 				}
@@ -211,12 +211,19 @@ $(document).ready(function(){
 	});
 
 	//CLICK A IMAGEN DE LAPIZ PARA MODIFICACIÓN DE AUTOR
-	$('.edit_autor').on('click',function(){//VINCULACION DELEGADA(^)
+	$('.edit_autor').on('click',function(){
 		
 		idAutor = $(this).siblings().find('.autor').attr('id');
 		location.href = 'modificar_autores.php?id_autor=' + idAutor;
-		// alert(idAutor);
+
+	});
+
+	//CLICK A IMAGEN DE LAPIZ PARA MODIFICACIÓN DE AUTOR (*)...PERO DE BUSQUEDA
+	$('#tabla_autores').on('click','td.edit_autor',function(){//VINCULACION DELEGADA(^)
 		
+		idAutor = $(this).siblings().find('.autor').attr('id');
+		location.href = 'modificar_autores.php?id_autor=' + idAutor;		
+	
 	});
 
 	$(".nano").nanoScroller();

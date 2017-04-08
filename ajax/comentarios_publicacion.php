@@ -26,8 +26,34 @@ if(isset($_POST['id_lib']) === true && empty($_POST['id_lib']) === false && isse
 	$resenia_sin_html = htmlentities($fila['resenia']);
 	$coment_sin_html = htmlentities($fila['comentario']);
 
-    echo"<tr><td><p class='resenia-libro'>".$resenia_sin_html."</p></td></tr>";
-    echo"<tr><td><p class='comentario-libro'>".$coment_sin_html."</p></td></tr>";
+	echo"<tr class='resenia-comentario'>
+       <td colspan='3'>
+
+          <section class='resenia'>
+             <table id='tabla_resenia'>
+                <tr id='resenia_pub' class='subtitle'>
+                   <th colspan='2'>Reseña</th>
+                   <tr><td class='no-border'><p class='resenia-libro'>".$resenia_sin_html."</p></td></tr>
+                </tr>
+             </table>
+          </section>
+
+       </td>
+    </tr>
+    <tr class='resenia-comentario'>
+       <td colspan='3'>
+
+          <section class='comentarios'>
+             <table id='tabla_comentarios'>
+                <tr id='comentarios_pub'>
+                   <th colspan='2'>Comentarios</th>
+                   <tr><td class='no-border'><p class='comentario-libro'>".$coment_sin_html."</p></td></tr>
+                </tr>
+             </table>
+          </section>
+
+       </td>
+    </tr>";
 
     mysql_free_result($resultado);
 }
