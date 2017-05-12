@@ -208,6 +208,21 @@ $(document).ready(function(){
 			}
 		);
 
+		$.post('ajax/biografia.php',
+			{
+				id_aut : idAutor
+			},
+			function(data){
+				// alert("Datos recibidos: " + data);
+				$('#tabla_biografia').find('#biografia').children().remove();
+				// $('#tabla_biografia').find('#biografia').css('background','BurlyWood');
+				// $('#tabla_publicaciones').find('#lista_pubs').after(data);
+				$('#tabla_biografia').find('#biografia').append(data); //VINCULACION DELEGADA
+
+				$(".nano").nanoScroller();
+			}
+		);
+
 	});
 
 	//CLICK A IMAGEN DE LAPIZ PARA MODIFICACIÓN DE AUTOR

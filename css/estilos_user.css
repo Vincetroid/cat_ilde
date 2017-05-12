@@ -235,6 +235,15 @@ section.publicaciones{
 	font-size: 0.9em;
 }
 
+.header-font1{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.header-font2{
+	font-size: 16px;
+}
+
 #bootstrap_overrides .glyphicon-log-out{
 	font-size: 14pt;
 	color: white;

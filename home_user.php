@@ -154,14 +154,9 @@ $numFilas = mysql_num_rows($resultado);
                   <div class="nano">
                      <div class="nano-content">
                         <section class="publicaciones">
-                           <table id="tabla_publicaciones" >
-                              <tr id="lista_pubs">
-                                 <p class="medium-font">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vestibulum vulputate efficitur. Curabitur interdum condimentum rhoncus. Maecenas placerat est et odio convallis, vel cursus est suscipit. Suspendisse tempus, tellus in bibendum tempor, nisl lectus gravida turpis, sit amet bibendum diam lorem quis elit. Vestibulum est libero, gravida sagittis elementum ac, dapibus nec neque. Integer et magna dapibus, ullamcorper odio sed, laoreet nisi. Curabitur a varius odio, et sagittis sem. Duis consectetur vestibulum ligula, ut pellentesque dolor fringilla ut. Sed enim enim, scelerisque a nunc non, fringilla mattis nibh. Donec non libero at enim vulputate tincidunt. Praesent convallis orci auctor dapibus porttitor.
-                                 </p>
-                                 <p class="medium-font">
-                     Nam ut eros eu diam euismod aliqu am. Quisque ac rhoncus erat. Maecenas malesuada lectus at efficitur consectetur. Duis a rhoncus lacus, eu interdum turpis. Proin vitae dapibus ex, at blandit lorem. Nulla iaculis sapien vel purus tincidunt, in aliquam urna semper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur nec condimentum risus. Etiam imperdiet, urna sed commodo pellentesque, est libero placerat ante, feugiat iaculis metus turpis et magna. Sed volutpat iaculis enim, vel pulvinar felis suscipit eget. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce et velit suscipit, tristique lacus a, vestibulum mi.
-                                 </p>
+                           <table id="tabla_biografia" >
+                              <tr id="biografia">
+                                 
                               </tr>
                            </table>
                         </section>

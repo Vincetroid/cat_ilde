@@ -29,7 +29,7 @@ echo "Bienvenido: ".$_SESSION['nick'];
       <input type="button" value="Cerrar Sesión" name="cerrar_sesion" onclick="location.href = 'cerrar_sesion.php'">
       <header>
          <center>
-            <h1>Catalogo San Ildefonso</h1>
+            <h1>Catalogo</h1>
          </center>
       </header>
       <center>
@@ -51,5 +51,8 @@ echo "Bienvenido: ".$_SESSION['nick'];
          </center>
       </footer>
    </section>
+   <script>
+
+   </script>
 </body>
 </html>
