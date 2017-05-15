@@ -31,6 +31,8 @@ session_start();
 				<article id="formularioRegistro">
 					<form method="post" action="registrar_autor.php" id="form_reg_autor" class="form-reg"> 
 					<table id="tablaFormReg">
+						<input type="hidden" name="cargosLong" id="cargosLong" value="">
+						<input type="hidden" name="actisLong" id="actisLong" value="">
 						<tr><td><h3>Registrar autor</h3></td></tr>
 						<tr><td><input type="text" placeholder="Nombre(s)" name="nom_autor" required></td></tr> 
 						<tr><td><input type="text" placeholder="Apellidos" name="ape_autor" required></td></tr>
@@ -44,8 +46,10 @@ session_start();
 						<tr id="row_cargo">
 							<td><input type="button" value="Agregar Cargo" name="agr_cargo" id="agr_cargo"></td></td>
 						</tr>
+						<tr id="row_acti">
+							<td><input type="button" value="Agregar Actividad" name="agr_acti" id="agr_acti"></td></td>
+						</tr>
 						<tr>
-							<!-- <input type="hidden" name="<?php// echo (session_name()); ?>" value="<?php //echo (session_id()); ?>"> -->
 							<td><input type="submit" value="Registrar" name="registrar_autor" id="registrar_autor"></td></td>
 						</tr>
 					</table>
@@ -62,15 +66,20 @@ session_start();
 	</section>
 	<script>
 
+	var addCargo = 0, addActi = 0;
 
 	$(document).ready(function(){
 		$('#agr_cargo').click(function(){
 
-			var descripcionCargo = createInputTableFormElement('text', 'Descripción del cargo', 'car_autor', '');
-			var fechaInicio = createInputTableFormElement('text', 'Fecha inicio', 'fec_ini_cargo', "(this.type='date')");
-			var fechaFin = createInputTableFormElement('text', 'Fecha final', 'fec_fin_cargo', "(this.type='date')");
-			var institucion = createInputTableFormElement('text', 'Institución', 'ins_autor', '');
+			addCargo++;
+
+			var descripcionCargo = createInputTableFormElement('text', 'Descripción del cargo', 'autor_cargo', '', addCargo);
+			var fechaInicio = createInputTableFormElement('text', 'Fecha inicio', 'fec_ini_cargo', "(this.type='date')", addCargo);
+			var fechaFin = createInputTableFormElement('text', 'Fecha final', 'fec_fin_cargo', "(this.type='date')", addCargo);
+			var institucion = createInputTableFormElement('text', 'Institución', 'ins_autor_cargo', '', addCargo);
 			
+			document.querySelector('#cargosLong').value = addCargo;
+
 			var btnCargo = document.querySelector('#row_cargo');
 			//Añadiendo en orden inverso por after
 			btnCargo.after(institucion);
@@ -80,9 +89,29 @@ session_start();
 		
 		});
 
+		$('#agr_acti').click(function(){
+
+			addActi++;
+
+			var descripcionActi = createInputTableFormElement('text', 'Descripción de actividad', 'autor_acti', '', addActi);
+			var fechaInicio = createInputTableFormElement('text', 'Fecha inicio', 'fec_ini_acti', "(this.type='date')", addActi);
+			var fechaFin = createInputTableFormElement('text', 'Fecha final', 'fec_fin_acti', "(this.type='date')", addActi);
+			var institucion = createInputTableFormElement('text', 'Institución', 'ins_autor_acti', '', addActi);
+			
+			document.querySelector('#actisLong').value = addActi;
+
+			var btnCargo = document.querySelector('#row_acti');
+			//Añadiendo en orden inverso por after
+			btnCargo.after(institucion);
+			btnCargo.after(fechaFin);
+			btnCargo.after(fechaInicio);
+			btnCargo.after(descripcionActi);
+		
+		});
+
 	});
 
-	function createInputTableFormElement(inputType, placeHolder, name_id, onFocus){
+	function createInputTableFormElement(inputType, placeHolder, name_id, onFocus, add){
 
 		var tr = document.createElement('TR');
 		var td = document.createElement('TD');
@@ -90,8 +119,8 @@ session_start();
 		input.setAttribute('type', inputType);
 		input.setAttribute('placeholder', placeHolder);
 		input.setAttribute('onfocus', onFocus);
-		input.setAttribute('name', name_id);
-		input.setAttribute('id', name_id);
+		input.setAttribute('name', name_id+add);
+		input.setAttribute('id', name_id+add);
 
 		td.appendChild(input);
 		tr.appendChild(td);

@@ -8,10 +8,8 @@ $apellidos = $_POST['ape_autor'];
 $lugar = $_POST['lug_autor'];
 $fecha = $_POST['fec_autor'];
 $info = $_POST['inf_autor'];
-$cargo = $_POST['car_autor'];
-$fec_ini_cargo = $_POST['fec_ini_cargo'];
-$fec_fin_cargo = $_POST['fec_fin_cargo'];
-$institucion = $_POST['ins_autor'];
+
+// echo "<pre>Arreglo Post: ". print_r($_POST)."</pre>";
 
 if(isset($nombre)){
  
@@ -53,22 +51,54 @@ if(isset($nombre)){
 	// }
 
 	//Recuperar nuevo id de autor (el último que se acaba de registrar)
-
 	$lastAutorCons = "SELECT * FROM autor ORDER BY id_autor DESC LIMIT 1;";
 	$lastAutorResource = mysql_query($lastAutorCons) or die (mysql_error());
 	$lastAutorRow =  mysql_fetch_array($lastAutorResource);
 	$lastAutor = $lastAutorRow['id_autor'];
 
-	//Insertar datos en tabla cargo de tal autor
-	$cargoCons = "INSERT INTO cargo VALUES (DEFAULT,'$cargo','$fec_ini_cargo','$fec_fin_cargo','$institucion','$lastAutor')";
-	echo $cargoCons."<br>";	
-	$resCargoCons = mysql_query($cargoCons) or die (mysql_error());
+	//Recuperar y registrar múltiples cargos del nuevo autor 
+	$numCargos = $_POST['cargosLong'];
+	for($i = 1; $i <= $numCargos; $i++){
+		$cargo = $_POST['autor_cargo'.$i];
+		$fec_ini_cargo = $_POST['fec_ini_cargo'.$i];
+		$fec_fin_cargo = $_POST['fec_fin_cargo'.$i];
+		$institucion = $_POST['ins_autor_cargo'.$i];
 
-	if($resultado && $resCargoCons){
+		// echo "<p>Cargo".$i.": ".$cargo."</p><br>";
+		// echo "<p>Fecha inicio: ".$fec_ini_cargo."</p><br>";
+		// echo "<p>Fecha fin: ".$fec_fin_cargo."</p><br>";
+		// echo "<p>Institución".$institucion."</p><br>";
+
+		//Insertar datos en tabla cargo de tal autor
+		$cargoCons = "INSERT INTO cargo VALUES (DEFAULT,'$cargo','$fec_ini_cargo','$fec_fin_cargo','$institucion','$lastAutor')";
+		echo $cargoCons."<br>";	
+		$resCargoCons = mysql_query($cargoCons) or die (mysql_error());
+	}
+
+	//Recuperar y registrar múltiples actividades del nuevo autor 
+	$numActis = $_POST['actisLong'];
+	for($j = 1; $j <= $numActis; $j++){
+		$acti = $_POST['autor_acti'.$j];
+		$fec_ini_acti = $_POST['fec_ini_acti'.$j];
+		$fec_fin_acti = $_POST['fec_fin_acti'.$j];
+		$institucion = $_POST['ins_autor_acti'.$j];
+
+		// echo "<p>Acti ".$j.": ".$acti."</p><br>";
+		// echo "<p>Fecha inicio: ".$fec_ini_acti."</p><br>";
+		// echo "<p>Fecha fin: ".$fec_fin_acti."</p><br>";
+		// echo "<p>Institución".$institucion."</p><br>";
+
+		//Insertar datos en tabla cargo de tal autor
+		$actiCons = "INSERT INTO actividad VALUES (DEFAULT,'$acti','$fec_ini_acti','$fec_fin_acti','$institucion','$lastAutor')";
+		echo $actiCons."<br>";	
+		$resActiCons = mysql_query($actiCons) or die (mysql_error());
+	}
+
+	//Validación una vez de si se cumplieron las grabaciones y direccionamiento
+	if($resultado && $resCargoCons && $resActiCons){
 		echo " <script>
 			alert('Registro exitoso');
 			location.href='home_user.php';
-			
 		</script>
 		";
 	}else{
@@ -78,8 +108,10 @@ if(isset($nombre)){
 		</script>
 		";
 	}
+
 }
 else{
 	header("location:autores.php");	
 }
+
 ?>
