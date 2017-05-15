@@ -1,7 +1,72 @@
-.form_cargo{
-	background: blue;
+body{
+	background: #975F45;
 }
 
-body{
-	/*background: gold;*/
+input[type="text"], input[type="date"], textarea{
+	padding: 5px;
+	border: none;
+	box-shadow: inset 0 0 3px #1d1d1d;
+	border-radius: 3px;
+	background: #8c1226;
+	color: white;
+	font-size: 1.1em;
+}
+
+::-webkit-input-placeholder{
+	color:white;
+}
+
+textarea{
+	font-family: calibri;
+}
+
+.btn-add, .btn-sub{
+	background: MediumSpringGreen;
+	border: none;
+	padding: 7px 5px 7px 5px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 5px black;
+	margin: 7px 0px 0px 0px;
+
+	transition:  color, background 0.4s ease;
+}
+
+.btn-add{
+	width: 40%;
+}
+
+.btn-sub{
+	width: 55%;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	font-size: 1.3em;
+	color: white;
+	font-variant: uppercase;
+	font-family: macondo;
+	font-weight: bold;
+	letter-spacing: 1.5px;
+	padding: 10px 5px 10px 5px;
+
+	background: #0079FF;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0096FF), to(#005DFF));
+	background: -webkit-linear-gradient(0% 0%, 0% 100%, from(#0096FF), to(#005DFF));
+	background: -moz-linear-gradient(center top, #0096FF, #005DFF);
+}
+
+.btn-add:hover{
+	background: #0079FF;
+	text-shadow: 0px 0px 2px white;
+	color: white;
+}
+
+.btn-sub:hover{
+	background: Green;
+	text-shadow: 0px 0px 12px white;
+}
+
+
+.narrow-font{
+	font-family: Nueva Std;
+	font-size: 1.8em;
 }

@@ -58,7 +58,7 @@ $numFilas = mysql_num_rows($resultado);
                   </div>
 
                   <div class="col-sm-3 left-up-header">
-                     <h2 class="left-up-header-content">Catálogo San Ildefonso</h2>
+                     <h2 class="left-up-header-content">Biblioteca San Ildefonso</h2>
                   </div>
 
                   <div class="col-sm-4 height-100">

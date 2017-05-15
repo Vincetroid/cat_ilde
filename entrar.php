@@ -8,7 +8,7 @@
 	<link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<link rel="stylesheet" href="css/estilos_login.css" />
-	<title>Catálogo San Ildefonso</title>
+	<title>Biblioteca San Ildefonso</title>
 	<script src="js/bootstrap.js"></script>
 	<link href="css/bootstrap.css" rel="stylesheet">
 	<link href="css/estilos_login.css" rel="stylesheet">
@@ -18,7 +18,7 @@
 		<div class="col-sm-12">
 			<header>
 				<center>
-					<h1 class="header-title">Catálogo San Ildefonso</h1>
+					<h1 class="header-title">Biblioteca San Ildefonso</h1>
 				</center>
 			</header>
 		</div>

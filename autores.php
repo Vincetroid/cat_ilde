@@ -12,48 +12,82 @@ session_start();
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
 	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/estilos_user.css" rel="stylesheet">
 	<link href="css/estilos_form_autores.css" rel="stylesheet">
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<title>Catalogo San Ildefonso</title>
 </head>
-<body>
-	<section id="contenedor">
-		<input type="button" value="Cerrar Sesión" name="cerrar_sesion" onclick="location.href = 'cerrar_sesion.php'">
-		<header>
-			<center>
-				<h1>Catalogo San Ildefonso</h1>
-			</center>
-		</header>
-		<center>
-			<input type="button" value="Ir a Menú" name="menu" onclick="location.href = 'home_user.php'">
+<body id="bootstrap_overrides">
+	<center style="margin-top:0px";>
+	  <div class="container-fluid">
+	     <div class="row">
+	        <div class="col-sm-12 header">
+
+	           <div class="col-sm-1">
+	              <img src="img/logo.png" class="logo">
+	              <div class="border-logo"></div>
+	           </div>
+
+	           <div class="col-sm-3 left-up-header">
+	              <h2 class="left-up-header-content">Biblioteca San Ildefonso</h2>
+	           </div>
+
+	           <div class="col-sm-4 height-100">
+	              <ul class="nav">
+	                 <li onclick="location.href = 'home_user.php'">Inicio</li>
+	                 <li onclick="location.href = 'baja_autores.php'">Borrar autor</li>
+	                 <li onclick="location.href = 'libros.php'">Registrar libro</li>
+	              </ul>
+	           </div>
+
+	           <div class="col-sm-2 right-up-header">
+	              <p class="right-up-header-content">
+	                 Bienvenido <?php echo $_SESSION['nick']."<br>"; ?>
+	              </p>
+	           </div>
+
+	           <div class="col-sm-1 right-up-header">
+	              <span onclick="location.href = 'cerrar_sesion.php'" class="glyphicon glyphicon-log-out"></span>
+	           </div>
+
+	        </div>
+	     </div>
+	     <div class="row">
+	        <div class="col-sm-12 line-under-header-nav"></div>
+	     </div>
+	  </div>
+
+	  <div class="little-space"></div>
+
 			<section id="registro">
 				<article id="formularioRegistro">
 					<form method="post" action="registrar_autor.php" id="form_reg_autor" class="form-reg"> 
 					<table id="tablaFormReg">
 						<input type="hidden" name="cargosLong" id="cargosLong" value="">
 						<input type="hidden" name="actisLong" id="actisLong" value="">
-						<tr><td><h3>Registrar autor</h3></td></tr>
-						<tr><td><input type="text" placeholder="Nombre(s)" name="nom_autor" required></td></tr> 
-						<tr><td><input type="text" placeholder="Apellidos" name="ape_autor" required></td></tr>
-						<tr><td><input type="text" placeholder="Lugar de nacimiento" name="lug_autor" required></td></tr>
-						<tr><td><input type="text" placeholder="Fecha de nacimiento" name="fec_autor" onfocus="(this.type='date')" required></td></tr>
-				<!-- Validar en el futuro las etiquetas html porque se interpretan y las comillas simples -->
-						<tr><td><textarea rows="12" cols="50" placeholder="Biografía" name="inf_autor" id="inf_autor" required>
-							<h1 class="header-font1">Un titulo</h1>
-							<p class="medium-font">Un parrafo</p>
-						</textarea></td></tr>
-						<tr id="row_cargo">
-							<td><input type="button" value="Agregar Cargo" name="agr_cargo" id="agr_cargo"></td></td>
-						</tr>
-						<tr id="row_acti">
-							<td><input type="button" value="Agregar Actividad" name="agr_acti" id="agr_acti"></td></td>
+						<tr><td><h3 class="text-center narrow-font white-letter">Registrar autor</h3></td></tr>
+						<tr>
+							<td><input type="text" placeholder="Nombre(s)" name="nom_autor" required></td>
 						</tr>
 						<tr>
-							<td><input type="submit" value="Registrar" name="registrar_autor" id="registrar_autor"></td></td>
+							<td><input type="text" placeholder="Apellidos" name="ape_autor" class="ape_autor" required></td>
+						</tr> 
+						<tr><td colspan="2"><input type="text" placeholder="Lugar de nacimiento" name="lug_autor" required></td></tr>
+						<tr><td><input type="text" placeholder="Fecha de nacimiento" name="fec_autor" onfocus="(this.type='date')" required></td></tr>
+						<tr><td><textarea rows="12" cols="70" placeholder="Biografía" name="inf_autor" id="inf_autor" required><h1 class="header-font1">Un titulo</h1><p class="medium-font">Un parrafo</p>
+						</textarea></td></tr>
+						<tr id="row_cargo">
+							<td><input type="button" value="Agregar Cargo" name="agr_cargo" id="agr_cargo" class="btn-add"></td></td>
+						</tr>
+						<tr id="row_acti">
+							<td><input type="button" value="Agregar Actividad" name="agr_acti" id="agr_acti" class="btn-add"></td></td>
+						</tr>
+						<tr>
+							<td><input type="submit" value="REGISTRAR" name="registrar_autor" id="registrar_autor" class="btn-sub"></td></td>
 						</tr>
 					</table>
-						</form>
+					</form>
 				</article>
 			</section>
 		</center>
@@ -63,8 +97,10 @@ session_start();
 				<?php require('creditos.php'); ?>
 			</center>
 		</footer>
-	</section>
-	<script>
+
+</body>
+
+<script>
 
 	var addCargo = 0, addActi = 0;
 
