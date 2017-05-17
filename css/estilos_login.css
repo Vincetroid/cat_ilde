@@ -59,3 +59,10 @@ img.footer-img{
 	filter: brightness(200%);
 	-webkit-filter: brightness(200%);
 }
+
+#pie_pagina{
+	position: fixed;
+	display: block;
+	margin-right: auto; 
+	margin-left: auto;
+}

@@ -43,7 +43,7 @@
 		<div class="col-sm-3"></div>
 	</div>
 
-	<footer class="row" style="margin-top:220px";>
+	<footer id="pie_pagina" class="row">
 		<div class="col-sm-12">
 			<center>
 				<img class="footer-img" src="img/macsi2016gray.png">
