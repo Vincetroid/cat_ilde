@@ -25,61 +25,50 @@ $numFilas = mysql_num_rows($resultado);
       <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
       <link href="css/bootstrap.css" rel="stylesheet">
       <link href="css/estilos_user.css" rel="stylesheet">
-      <script src="js/jquery-3.1.1.min.js"></script>
+      <link href="css/estilos_baja.css" rel="stylesheet">
+      <!-- <script src="js/jquery-3.1.1.min.js"></script> -->
+      <script src="js/jquery-3.2.1.js"></script>
       <script src="js/bootstrap.js"></script>
       <script src="js/baja_autores.js"></script>
-      <title>Catalogo San Ildefonso</title>
+      <title>Biblioteca San Ildefonso</title>
    </head>
    <body id="bootstrap_overrides">
-      <center style="margin-top:50px";>
-         <header>
-            <center>
-               <h1>Catálogo San Ildefonso</h1>
-               <input type="button" value="Ir a Menú" name="menu" onclick="location.href = 'home_user.php'"><br><br>
-            </center>
-         </header>
-         Usuario: <?php echo $_SESSION['nick']."<br>"; ?>
-         <p>Elija un autor</p>
-
-         <section>
-            <input type="button" value="Dar de alta autor" name="alta_autor" onclick="location.href = 'autores.php'">
-            <input type="button" value="Modificar autor" name="modificar_autor" onclick="location.href = 'modificar_autores.php'">
-            <input type="button" value="Registrar libro" name="alta_libro" onclick="location.href = 'libros.php'">
-            <input type="button" value="Cerrar Sesión" name="cerrar_sesion" onclick="location.href = 'cerrar_sesion.php'">
-         </section>
-
-         <table id="secciones_visualizacion">
-            <tr>
-               <td>
-                  <section class="autores">
-                     <table id="tabla_autores">
-                        <tr>
-                           <th colspan="2" class="libro">Autores</th>
-                        </tr>
-                        <tr>
-                           <td colspan="2" id="busqueda_nombre">
-                              <input type="text" placeholder="Búsqueda por nombre" autofocus   >
-                           </td>
-                        </tr>
-                        <tr id="ultima_fila_busqueda">
-                           <td colspan="2" id="busqueda_apellidos">
-                              <input type="text" placeholder="Búsqueda por apellidos">
-                           </td>
-                        </tr>
-                        <?php
-                           for ($fila = 0; $fila < $numFilas; $fila++) {
-                              $id_autor = mysql_result($resultado, $fila, "id_autor");
-                              $nombre_autor = mysql_result($resultado, $fila, "nombre");
-                              $apellidos_autor = mysql_result($resultado, $fila, "apellidos");
-                              echo"<tr><td><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td></tr>";
-                           }
-                        ?>
-                     </table>
-                  </section>
-               </td>
-            </tr>
+      <center style="margin-top:0px";>
+         <div class="container-fluid">
             
-         </table>
+            <?php require('navegacion.php'); ?>
+            
+         </div>
+
+         
+         <section class="autores">
+            <table id="tabla_autores">
+               <tr>
+                  <th>
+                     <h3 class="text-center narrow-font">Borrar autor</h3>
+                  </th>
+               </tr>
+               <tr>
+                  <td colspan="2" id="busqueda_nombre" class="cell-full">
+                     <input type="text" placeholder="Búsqueda por nombre" autofocus   >
+                  </td>
+               </tr>
+               <tr id="ultima_fila_busqueda">
+                  <td colspan="2" id="busqueda_apellidos" class="cell-full">
+                     <input type="text" placeholder="Búsqueda por apellidos">
+                  </td>
+               </tr>
+               <?php
+                  for ($fila = 0; $fila < $numFilas; $fila++) {
+                     $id_autor = mysql_result($resultado, $fila, "id_autor");
+                     $nombre_autor = mysql_result($resultado, $fila, "nombre");
+                     $apellidos_autor = mysql_result($resultado, $fila, "apellidos");
+                     echo"<tr><td><a class='autor' id='id_autor".$id_autor."'>".$nombre_autor." ".$apellidos_autor."</a></td></tr>";
+                  }
+               ?>
+            </table>
+         </section>
+             
 
       </center>
 

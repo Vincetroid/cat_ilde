@@ -5,12 +5,14 @@ $(document).ready(function(){
 	var cadenaApellidos = '';
 
 	//CLICK A AUTOR
-	$('.autor').on('click',function(){
+	$('.autor').on('click',function(e){
+		e.preventDefault();
 
 		var erase = confirm('¿Está seguro? Se borrarán todas las publicaciones e información asociadas al autor ');
 		var row_selection = $(this).closest("tr");
 		
 		if(erase == true){
+		// debugger;
 			idAutor = $(this).attr('id');
 			
 			$.post('ajax/borrar_autores.php',

@@ -337,6 +337,11 @@ section.publicaciones{
 	border: none;
 }
 
+.narrow-font{
+	font-family: Nueva Std;
+	font-size: 1.8em;
+}
+
 /*Loaders*/
 /*.loader {
     border: 16px solid #f3f3f3;

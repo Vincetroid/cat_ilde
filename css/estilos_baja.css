@@ -1,0 +1,16 @@
+body{
+	background: GhostWhite;
+}
+
+table td{
+	border: 1px solid black;
+}
+
+.cell-full{
+	padding: 0px;
+}
+
+input{
+	border: none;
+	padding: 5px 0px;
+}
