@@ -27,7 +27,7 @@ if(isset($_POST['id_aut']) === true && empty($_POST['id_aut']) === false ){
     <tr><td><input type="text" placeholder="Lugar de nacimiento" name="lug_autor" value="'.$fila['lugar_nac'].'" required></td></tr>
     <tr><td><input type="date" placeholder="Fecha de nacimiento" name="fec_autor" value="'.$fila['fecha_nac'].'" required></td></tr>
     <tr><td><textarea rows="12" cols="50" rows="" placeholder="Biografía" name="inf_autor" id="infAutor" onkeypress="onenter(event)" required>'.$fila['info'].'</textarea></td></tr>
-    <tr><td><input type="submit" value="Modificar" name="modificar_autor"></td></td></tr>';
+    <tr><td><input type="submit" value="Modificar" name="modificar_autor" class="btn-sub"></td></td></tr>';
 
 }
 

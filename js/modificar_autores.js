@@ -20,33 +20,7 @@ $(document).ready(function(){
 			id_aut : idAutor
 		},
 		function(data){
-			// alert("Datos recibidos: " + data);
 			$('#tablaFormReg').append(data);
 		}
 	);
-
-	function onenter(e){
-		if(e.keyCode == 13){
-			// alert('Se presionó enter');
-			var content = document.getElementById('inf_autor').value;
-			var paragraph_content = '<p class="medium-font">' + content + '</p>';
-			alert(content);
-			alert(paragraph_content);
-
-			// obtener el valor del textarea, analizar la cadena, por cada salto de linea, insertar un parrafo
-		} else {
-			// alert('Se presionó otra tecla');
-		}
-	}
-	//onkeypress="onenter(event)"
-
-	//contenido de textarea
-	// var content = document.getElementById("infAutor").value;
-
-	// //salto de línea
-	// if( (content.match(/\n/g) || []) ){
-	// 	alert('Salto de linea' +  (content.match(/\n/g) || []).length );
-	// }
-
-	// var paragraph_content = '<p class="medium-font">' + content + '</p>';
 });

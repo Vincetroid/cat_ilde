@@ -44,7 +44,7 @@ $numFilas = mysql_num_rows($resultado);
       <!-- bxSlider CSS file -->
       <!-- <link href="css/jquery.bxslider.css" rel="stylesheet" /> -->
 
-      <title>Catalogo San Ildefonso</title>
+      <title>Biblioteca San Ildefonso</title>
    </head>
    <body id="bootstrap_overrides">
       <center style="margin-top:0px";>
@@ -53,6 +53,8 @@ $numFilas = mysql_num_rows($resultado);
             <?php require('navegacion.php'); ?>
             
          </div>
+
+         <!-- <div class="loader"></div> -->
 
          <div class="subtitle">
             <div class="subtitle1">Autores</div>

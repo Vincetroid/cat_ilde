@@ -1,4 +1,50 @@
+// if(window.onload){
+// 	console.log('Se cargó');
+// } else {
+// 	console.log('No se ha cargado');
+// }
+
+// window.onload = check;
+// function check(e){
+// 	console.log('Se cargó' + e);
+// }
+
+// while(window.onload){
+// 	console.log('Se cargó');
+// } else {
+// 	console.log('No se ha cargado');
+// }
+
+// if (document.readyState === "complete") { 
+// 	init(); 
+// } else {
+
+// }
+
+// var loader = document.querySelector('.loader');
+// window.addEventListener('load', function(){
+//     loader.style.display = 'none';
+// });
+
+// var readyStateCheckInterval = setInterval(function() {
+//     if (document.readyState === "complete") {
+// 		console.log('Se cargó');
+//         clearInterval(readyStateCheckInterval);
+//         loader.style.display = 'none';
+//         // init();
+//     } else {
+// 		console.log('No se ha cargado');
+//     }
+// }, 10);
+
+
+// Si se está cargando la página
+// 	desplegar el loader
+// si no
+// 	desplegar la página
+
 $(document).ready(function(){
+
 
 	var idAutor = '';
 	var idLibro = ''; 
