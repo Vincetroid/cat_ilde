@@ -34,6 +34,7 @@ $numFilas = mysql_num_rows($resultado);
       <link href="css/bootstrap.css" rel="stylesheet">
       <link href="css/nanoscroller.css" rel="stylesheet">
       <link href="css/estilos_user.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
       <script src="js/home_user.js"></script>
       <!-- <link href="css/jquery.bxslider.css" rel="stylesheet" /> -->
 
@@ -48,13 +49,8 @@ $numFilas = mysql_num_rows($resultado);
    </head>
    <body id="bootstrap_overrides">
       <center style="margin-top:0px";>
-         <div class="container-fluid">
-            
-            <?php require('navegacion.php'); ?>
-            
-         </div>
 
-         <!-- <div class="loader"></div> -->
+         <?php require('navegacion.php'); ?>
 
          <div class="subtitle">
             <div class="subtitle1">Autores</div>

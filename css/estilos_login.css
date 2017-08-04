@@ -41,6 +41,14 @@ body{
 	width: 100%;
 }
 
+.btn-success{
+	transition: background 0.4s ease;
+}
+
+.btn-success:hover{
+	background: green;
+}
+
 .btn-center{
 	display: block;
 	margin-right: auto; 
@@ -61,8 +69,5 @@ img.footer-img{
 }
 
 #pie_pagina{
-	position: fixed;
-	display: block;
-	margin-right: auto; 
-	margin-left: auto;
+	margin-top: 120px;
 }

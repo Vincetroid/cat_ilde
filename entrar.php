@@ -7,11 +7,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
 	<link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
 	<script src="js/jquery-3.1.1.min.js"></script>
-	<link rel="stylesheet" href="css/estilos_login.css" />
 	<title>Biblioteca San Ildefonso</title>
 	<script src="js/bootstrap.js"></script>
 	<link href="css/bootstrap.css" rel="stylesheet">
-	<link href="css/estilos_login.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/estilos_login.css" />
 </head>
 <body id="bootstrap_overrides">
 	<div class="row">
@@ -43,7 +42,7 @@
 		<div class="col-sm-3"></div>
 	</div>
 
-	<footer id="pie_pagina" class="row">
+	<div id="pie_pagina" class="row">
 		<div class="col-sm-12">
 			<center>
 				<img class="footer-img" src="img/macsi2016gray.png">
@@ -51,8 +50,7 @@
                 <p class="footer-p">MÉXICO - ALGUNOS DERECHOS RESERVADOS © 2016 - POLÍTICAS DE PRIVACIDAD</p>
 			</center>
 		</div>
-	</footer>
-	</section>
+	</div>
 	
 </body>
 </html>
