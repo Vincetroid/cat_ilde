@@ -17,6 +17,7 @@ session_start();
    <script src="js/jquery-3.1.1.min.js"></script>
    <script src="js/bootstrap.js"></script>
    <script src="js/modificar_autores.js"></script>
+   <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
    <title>Biblioteca San Ildefonso</title>
 </head>
 <body id="bootstrap_overrides">

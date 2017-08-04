@@ -3,7 +3,7 @@
 //CLICK A AUTOR PARA MOSTRAR BIOGRAFÍA DEL AUTOR
 if(isset($_POST['id_aut']) === true && empty($_POST['id_aut']) === false ){
 
-	header('Content-Type: text/html; charset=ISO-8859-15');
+	// header('Content-Type: text/html; charset=ISO-8859-15');
 	
 	//Conexion a bd yendo atrás hacia carpeta raíz
 	require('../conexion.php');
